@@ -27,7 +27,39 @@
 </head>
 <body>
 
-<!-- This is your customized hero section with your title and authors -->
+<!-- NEW: Navigation Bar -->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="index.html">
+        <span class="icon">
+          <i class="fas fa-home"></i>
+        </span>
+        <span>Home</span>
+      </a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="social_orca.html">
+            Social Orca Gallery
+          </a>
+          <!-- You can add more links here in the future -->
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
@@ -100,7 +132,7 @@
   </div>
 </section>
 
-<!-- The teaser section now only contains the text subtitle. The video has been removed. -->
+
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
@@ -111,7 +143,7 @@
   </div>
 </section>
 
-<!-- The abstract section remains unchanged -->
+
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
@@ -131,40 +163,37 @@
   </div>
 </section>
 
-<!-- The results carousel section is now empty. -->
+
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
-      <!-- The content (the carousel) has been removed. -->
-      <!-- You can add new content or a title here if you wish. -->
+      <!-- This section is intentionally empty. -->
     </div>
   </div>
 </section>
 
 
-<!-- This main results section is now empty. Your GIF gallery will go here. -->
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Simulation Gallery</h2>
-        <!-- This is where your build script will inject the GIF gallery. -->
-        <!-- GIF_GALLERY_PLACEHOLDER -->
+        <h2 class="title is-3">Main Results</h2>
+        <!-- You can place main results on the homepage here -->
+        <!-- Or leave it empty and direct users to the gallery page. -->
       </div>
     </div>
   </div>
 </section>
 
 
-<!-- The BibTeX section remains unchanged -->
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
+    <pre><code>@inproceedings{mrnforsmg2025,
+  author    = {Singh, Shubham and Chandra, Rohan and et al.},
+  title     = {A Survey of Multi-Robot Navigation in Social Mini-Games},
+  booktitle = {Conference Name},
+  year      = {2025},
 }</code></pre>
   </div>
 </section>
