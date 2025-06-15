@@ -20,16 +20,18 @@ fi
 # --- BUILD PROCESS ---
 echo "Generating gallery HTML for $(ls -1q $GIF_SOURCE_DIR/*.gif | wc -l) GIFs..."
 GALLERY_HTML=""
-# Use `ls -v` to sort files numerically (run_1, run_2, ..., run_10)
+# Use `ls -v` to sort files numerically (e.g., run_1, run_2, ..., run_10)
 for gif in $(ls -v "$GIF_SOURCE_DIR"/*.gif); do
   filename=$(basename "$gif")
+  
+  #
+  # THE CRITICAL FIX IS HERE:
+  # We are now using the correct <img> tag to display the GIF files.
+  #
   GALLERY_HTML="${GALLERY_HTML}
     <div class='column is-one-quarter'>
-      <div class='publication-video-container'>
-        <video playsinline autoplay loop muted>
-          <!-- THE FIX IS HERE: Added a leading '/' to the src path -->
-          <source src='/${gif}' type='video/mp4'>
-        </video>
+      <div class='content'>
+        <img src='${gif}' alt='${filename}'>
       </div>
       <p class='has-text-centered'>${filename}</p>
     </div>"
