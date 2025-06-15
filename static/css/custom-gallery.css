@@ -1,0 +1,24 @@
+/* static/css/custom-gallery.css */
+
+/* Custom CSS to reduce space and enlarge GIFs in gallery */
+.columns.is-multiline.is-centered {
+    /* Removes extra space on the left/right of the whole grid */
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .column.is-one-quarter {
+    /* Reduces the "gutter" or space between each GIF */
+    padding: 5px;
+  }
+  
+  .content img {
+    /* Makes the GIF fill the container and adds rounded corners */
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    /* You can adjust this value to control the maximum height */
+    max-height: 250px; 
+    object-fit: contain;
+  }
+  

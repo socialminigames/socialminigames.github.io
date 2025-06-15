@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# build_gallery.sh (flexible version)
+# build_gallery.sh (Final, Flexible Version)
 # Creates a gallery page from any given folder of GIFs.
 # Usage: ./build_gallery.sh <folder_name>
 
@@ -22,7 +22,7 @@ TEMPLATE_PAGE="${GALLERY_NAME}.template.html"
 # 3. Create a template file if one doesn't exist for this gallery
 if [ ! -f "$TEMPLATE_PAGE" ]; then
   echo "Creating new template file: $TEMPLATE_PAGE..."
-  # Create a generic template page
+  # Create a generic template page that automatically links to your custom styles
   cat <<EOF > "$TEMPLATE_PAGE"
 <!DOCTYPE html>
 <html>
@@ -32,10 +32,13 @@ if [ ! -f "$TEMPLATE_PAGE" ]; then
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
+  <!-- This line automatically links your custom gallery styles -->
+  <link rel="stylesheet" href="./static/css/custom-gallery.css">
 </head>
 <body>
 <nav class="navbar"><div class="navbar-menu"><div class="navbar-start" style="flex-grow: 1; justify-content: center;"><a class="navbar-item" href="index.html"><span>Home</span></a></div></div></nav>
 <section class="section"><div class="container is-max-widescreen">
+  <!-- The title is also generated automatically, replacing underscores with spaces -->
   <h2 class="title is-3 has-text-centered">${GALLERY_NAME//_/ } Simulation Gallery</h2>
   <div class="content"><!-- GIF_GALLERY_PLACEHOLDER --></div>
 </div></section>
@@ -51,8 +54,10 @@ fi
 # --- BUILD PROCESS ---
 echo "Generating gallery HTML for $(ls -1q $GIF_SOURCE_DIR/*.gif | wc -l) GIFs..."
 GALLERY_HTML=""
+# Loop through all GIFs, sorting them numerically (run_1, run_2, ..., run_10)
 for gif in $(ls -v "$GIF_SOURCE_DIR"/*.gif); do
   filename=$(basename "$gif")
+  # Use the standard <img> tag for correct GIF display
   GALLERY_HTML="${GALLERY_HTML}
     <div class='column is-one-quarter'>
       <div class='content'><img src='${gif}' alt='${filename}'></div>
