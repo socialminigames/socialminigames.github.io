@@ -23,7 +23,7 @@ TEMPLATE_PAGE="${GALLERY_NAME}.template.html"
 if [ ! -f "$TEMPLATE_PAGE" ]; then
   echo "Creating new template file: $TEMPLATE_PAGE..."
   # Create a generic template page that automatically links to your custom styles
-  cat <<EOF > "$TEMPLATE_PAGE"
+  cat <<EOT > "$TEMPLATE_PAGE"
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +43,7 @@ if [ ! -f "$TEMPLATE_PAGE" ]; then
   <div class="content"><!-- GIF_GALLERY_PLACEHOLDER --></div>
 </div></section>
 </body></html>
-EOF
+EOT
 fi
 
 if [ ! -d "$GIF_SOURCE_DIR" ]; then
@@ -52,7 +52,7 @@ if [ ! -d "$GIF_SOURCE_DIR" ]; then
 fi
 
 # --- BUILD PROCESS ---
-echo "Generating gallery HTML for $(ls -1q $GIF_SOURCE_DIR/*.gif | wc -l) GIFs..."
+echo "Generating gallery HTML for $(ls -1q "$GIF_SOURCE_DIR"/*.gif | wc -l) GIFs..."
 GALLERY_HTML=""
 # Loop through all GIFs, sorting them numerically (run_1, run_2, ..., run_10)
 for gif in $(ls -v "$GIF_SOURCE_DIR"/*.gif); do
