@@ -2,23 +2,44 @@
 
 /* Custom CSS to reduce space and enlarge GIFs in gallery */
 .columns.is-multiline.is-centered {
-    /* Removes extra space on the left/right of the whole grid */
-    margin-left: 0;
-    margin-right: 0;
-  }
-  
+  /* Removes extra space on the left/right of the whole grid */
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.column.is-one-quarter {
+  /* Reduces the "gutter" or space between each GIF */
+  padding: 10px;
+  /* Make columns wider when there are fewer items */
+  flex: 0 0 45%; /* Takes up 45% width instead of 25% */
+  max-width: 45%;
+}
+
+.content img {
+  /* Makes the GIF fill the container and adds rounded corners */
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  /* Increased max-height for bigger display */
+  max-height: 400px; 
+  object-fit: contain;
+  /* Add a subtle shadow for better visual appeal */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Center the grid when there are only 4 items */
+.columns.is-multiline.is-centered {
+  justify-content: center;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
   .column.is-one-quarter {
-    /* Reduces the "gutter" or space between each GIF */
-    padding: 5px;
+    flex: 0 0 90%;
+    max-width: 90%;
   }
   
   .content img {
-    /* Makes the GIF fill the container and adds rounded corners */
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    /* You can adjust this value to control the maximum height */
-    max-height: 250px; 
-    object-fit: contain;
+    max-height: 300px;
   }
-  
+}
