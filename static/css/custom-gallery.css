@@ -10,9 +10,9 @@
 .column.is-one-quarter {
   /* Reduces the "gutter" or space between each GIF */
   padding: 10px;
-  /* Make columns wider when there are fewer items */
-  flex: 0 0 45%; /* Takes up 45% width instead of 25% */
-  max-width: 45%;
+  /* Remove the flex override to let Bulma handle 4 per row */
+  /* flex: 0 0 45%; -- REMOVE THIS LINE */
+  /* max-width: 45%; -- REMOVE THIS LINE */
 }
 
 .content img {
@@ -21,7 +21,7 @@
   height: auto;
   border-radius: 8px;
   /* Increased max-height for bigger display */
-  max-height: 400px; 
+  max-height: 350px; 
   object-fit: contain;
   /* Add a subtle shadow for better visual appeal */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -33,6 +33,13 @@
 }
 
 /* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+  .column.is-one-quarter {
+    flex: 0 0 45%;
+    max-width: 45%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .column.is-one-quarter {
     flex: 0 0 90%;
