@@ -17,7 +17,6 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <!-- The favicon link has been removed to get rid of the default icon -->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -27,7 +26,7 @@
 </head>
 <body>
 
-<!-- UPDATED: Navigation Bar with 3 Gallery Links -->
+<!-- MODIFIED: Navbar now links to the new Results Showcase section -->
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
@@ -44,22 +43,10 @@
         </span>
         <span>Home</span>
       </a>
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          Simulation Gallery
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="social_orca_doorway.html">
-            Social Orca (Doorway)
-          </a>
-          <a class="navbar-item" href="social_orca_hallway.html">
-            Social Orca (Hallway)
-          </a>
-          <a class="navbar-item" href="social_orca_intersection.html">
-            Social Orca (Intersection)
-          </a>
-        </div>
-      </div>
+      <!-- Changed dropdown to a direct link to the showcase section -->
+      <a class="navbar-item" href="#results-showcase">
+        Results Showcase
+      </a>
     </div>
   </div>
 </nav>
@@ -178,17 +165,89 @@
 </section>
 
 
-<section class="section">
+<!-- MODIFIED SECTION: Results Showcase with 3x3 GIF Grid -->
+<section class="section" id="results-showcase">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Main Results</h2>
-        <!-- You can place main results on the homepage here -->
-        <!-- Or leave it empty and direct users to the gallery page. -->
+        <h2 class="title is-3 has-text-centered">Results Showcase</h2>
+
+        <!-- Doorway Scenario -->
+        <h3 class="title is-4">Doorway Scenario</h3>
+        <div class="columns is-centered">
+          <div class="column">
+            <div class="content has-text-centered">
+              <h4 class="subtitle is-5">Social-ORCA</h4>
+              <img src="static/gifs/orca_doorway.gif" alt="Social-ORCA in Doorway">
+            </div>
+          </div>
+          <div class="column">
+            <div class="content has-text-centered">
+              <h4 class="subtitle is-5">IMPC-DR</h4>
+              <img src="static/gifs/impc_doorway.gif" alt="IMPC-DR in Doorway">
+            </div>
+          </div>
+          <div class="column">
+            <div class="content has-text-centered">
+              <h4 class="subtitle is-5">CADRL</h4>
+              <img src="static/gifs/cadrl_doorway.gif" alt="CADRL in Doorway">
+            </div>
+          </div>
+        </div>
+        <hr>
+
+        <!-- Hallway Scenario -->
+        <h3 class="title is-4">Hallway Scenario</h3>
+        <div class="columns is-centered">
+          <div class="column">
+            <div class="content has-text-centered">
+              <h4 class="subtitle is-5">Social-ORCA</h4>
+              <img src="static/gifs/orca_hallway.gif" alt="Social-ORCA in Hallway">
+            </div>
+          </div>
+          <div class="column">
+            <div class="content has-text-centered">
+              <h4 class="subtitle is-5">IMPC-DR</h4>
+              <img src="static/gifs/impc_hallway.gif" alt="IMPC-DR in Hallway">
+            </div>
+          </div>
+          <div class="column">
+            <div class="content has-text-centered">
+              <h4 class="subtitle is-5">CADRL</h4>
+              <img src="static/gifs/cadrl_hallway.gif" alt="CADRL in Hallway">
+            </div>
+          </div>
+        </div>
+        <hr>
+        
+        <!-- Intersection Scenario -->
+        <h3 class="title is-4">Intersection Scenario</h3>
+        <div class="columns is-centered">
+          <div class="column">
+            <div class="content has-text-centered">
+              <h4 class="subtitle is-5">Social-ORCA</h4>
+              <img src="static/gifs/orca_intersection.gif" alt="Social-ORCA in Intersection">
+            </div>
+          </div>
+          <div class="column">
+            <div class="content has-text-centered">
+              <h4 class="subtitle is-5">IMPC-DR</h4>
+              <img src="static/gifs/impc_intersection.gif" alt="IMPC-DR in Intersection">
+            </div>
+          </div>
+          <div class="column">
+            <div class="content has-text-centered">
+              <h4 class="subtitle is-5">CADRL</h4>
+              <img src="static/gifs/cadrl_intersection.gif" alt="CADRL in Intersection">
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </section>
+<!-- END OF MODIFIED SECTION -->
 
 
 <section class="section" id="BibTeX">
