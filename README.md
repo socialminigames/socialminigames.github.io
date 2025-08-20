@@ -1,1 +1,1 @@
-# mrnforsmg.github.io
+# socialminigames.github.io
