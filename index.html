@@ -180,13 +180,490 @@
 </section>
 
 
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <!-- This section is intentionally empty. -->
+<!-- ===== VISUAL SURVEY SUMMARY ===== -->
+
+<!-- 1. Survey at a Glance -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Survey at a Glance</h2>
+    <div class="section-divider"></div>
+    <div class="survey-glance">
+      <div class="survey-glance-flow">
+        <div class="flow-node">
+          <div class="flow-icon">&#127919;</div>
+          <div class="flow-label">SMGs</div>
+          <div class="flow-sub">Definitions, Scenarios &amp; Metrics</div>
+        </div>
+        <div class="flow-arrow">&#10132;</div>
+        <div class="flow-node">
+          <div class="flow-icon">&#9881;&#65039;</div>
+          <div class="flow-label">Algorithms</div>
+          <div class="flow-sub">MARL, MAPF, Optimization, Others</div>
+        </div>
+        <div class="flow-arrow">&#10132;</div>
+        <div class="flow-node">
+          <div class="flow-icon">&#128218;</div>
+          <div class="flow-label">Taxonomy</div>
+          <div class="flow-sub">6 Design Dimensions</div>
+        </div>
+        <div class="flow-arrow">&#10132;</div>
+        <div class="flow-node">
+          <div class="flow-icon">&#9989;</div>
+          <div class="flow-label">Properties</div>
+          <div class="flow-sub">Safety, Liveness, Fairness, ...</div>
+        </div>
+        <div class="flow-arrow">&#10132;</div>
+        <div class="flow-node">
+          <div class="flow-icon">&#128200;</div>
+          <div class="flow-label">Evaluation</div>
+          <div class="flow-sub">6 Metrics + Benchmarks</div>
+        </div>
+        <div class="flow-arrow">&#10132;</div>
+        <div class="flow-node">
+          <div class="flow-icon">&#128301;</div>
+          <div class="flow-label">Trends</div>
+          <div class="flow-sub">Vision, Humans, Digital Twins</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+
+<!-- 2. What are Social Mini-Games? -->
+<section class="section" style="background:#fafbff;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">What are Social Mini-Games?</h2>
+    <div class="section-divider"></div>
+
+    <!-- SMG vs General MRN -->
+    <div class="comparison-row">
+      <div class="comparison-box smg-box">
+        <div class="comp-title" style="color:#667eea;">Social Mini-Games (SMGs)</div>
+        <ul>
+          <li><strong>High agency</strong> &mdash; small actions significantly impact others</li>
+          <li>Constrained environments (doorways, hallways, intersections)</li>
+          <li>Typically 2&ndash;4 tightly coupled agents</li>
+          <li>Deadlocks, collisions, and symmetry are core challenges</li>
+          <li>Require specialized solvers and SMG-aware metrics</li>
+        </ul>
+      </div>
+      <div class="comparison-box mrn-box">
+        <div class="comp-title" style="color:#888;">General MRN</div>
+        <ul>
+          <li><strong>Low to medium agency</strong> &mdash; agents mostly independent</li>
+          <li>Open environments with ample space</li>
+          <li>Decoupled trajectories most of the time</li>
+          <li>Standard collision avoidance usually suffices</li>
+          <li>Traditional metrics (path length, time) are adequate</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SMG definition figure -->
+    <div class="has-text-centered" style="margin-top:1.5rem;">
+      <img src="static/images/survey/smg_w_label.png" alt="SMG vs Not-an-SMG examples" style="max-width:700px; width:100%; border-radius:12px; box-shadow: 0 2px 16px rgba(0,0,0,0.08);">
+      <p style="font-size:0.85rem; color:#777; margin-top:0.6rem;">An SMG arises when preferred trajectories of two or more agents must conflict within a time interval &mdash; forcing coordination.</p>
+    </div>
+
+    <!-- 5 Key Characteristics -->
+    <div style="margin-top:2rem;">
+      <h3 class="title is-4">Key Characteristics of SMGs</h3>
+      <ul class="char-list">
+        <li><span class="char-num">1</span><span><strong>Mutual Occupancy Contention</strong> &mdash; Agent convex hulls persistently intersect across individual optimal trajectories.</span></li>
+        <li><span class="char-num">2</span><span><strong>Capacity-one Resource Contention</strong> &mdash; Two or more agents contend for a shared, capacity-one resource (doorway, merge lane).</span></li>
+        <li><span class="char-num">3</span><span><strong>Crossing Flows</strong> &mdash; Orthogonal or oblique approach trajectories require right-of-way or turn-taking.</span></li>
+        <li><span class="char-num">4</span><span><strong>Occlusion / Limited Observability</strong> &mdash; Beliefs about others' motion/goals materially shift best responses (e.g., blind corners).</span></li>
+        <li><span class="char-num">5</span><span><strong>Conflicting Objectives</strong> &mdash; Heterogeneous costs (speed vs. smoothness, priority agent vs. regular agent) create trade-offs.</span></li>
+      </ul>
+    </div>
+
+    <!-- 9 Canonical Scenarios -->
+    <h3 class="title is-4" style="margin-top:2rem;">9 Canonical SMG Scenarios</h3>
+    <div class="scenario-grid">
+      <div class="scenario-card">
+        <img src="static/images/survey/doorway.png" alt="Doorway" style="height:100px; margin-bottom:0.5rem;">
+        <div class="sc-name">Doorway</div>
+        <div class="sc-desc">Bottleneck navigation through tight spaces; tests prioritization and congestion handling.</div>
+      </div>
+      <div class="scenario-card">
+        <img src="static/images/survey/intersection.png" alt="Intersection" style="height:100px; margin-bottom:0.5rem;">
+        <div class="sc-name">Intersection</div>
+        <div class="sc-desc">Agents from different directions meet; tests complex multi-agent interaction handling.</div>
+      </div>
+      <div class="scenario-card">
+        <img src="static/images/survey/hallway.png" alt="Hallway" style="height:100px; margin-bottom:0.5rem;">
+        <div class="sc-name">Hallway</div>
+        <div class="sc-desc">Two-way corridor traffic; tests overtaking, yielding, and head-on deadlock prevention.</div>
+      </div>
+      <div class="scenario-card">
+        <img src="static/images/survey/L-corner.png" alt="L-Corner" style="height:100px; margin-bottom:0.5rem;">
+        <div class="sc-name">L-Corner</div>
+        <div class="sc-desc">Sharp turn in an L-shaped environment; limited visibility requires strong deadlock avoidance.</div>
+      </div>
+      <div class="scenario-card">
+        <img src="static/images/survey/Blind_Corner.png" alt="Blind Corner" style="height:100px; margin-bottom:0.5rem;">
+        <div class="sc-name">Blind Corner</div>
+        <div class="sc-desc">Limited visibility and sudden encounters; tests anticipation and real-time reaction.</div>
+      </div>
+      <div class="scenario-card">
+        <img src="static/images/survey/crowded.png" alt="Crowded Traffic" style="height:100px; margin-bottom:0.5rem;">
+        <div class="sc-name">Crowded Traffic</div>
+        <div class="sc-desc">Many dynamic agents moving randomly; tests navigation through dense, busy environments.</div>
+      </div>
+      <div class="scenario-card">
+        <img src="static/images/survey/parallel.png" alt="Parallel Traffic" style="height:100px; margin-bottom:0.5rem;">
+        <div class="sc-name">Parallel Traffic</div>
+        <div class="sc-desc">Agents moving in parallel paths; tests side-by-side deadlock avoidance and speed handling.</div>
+      </div>
+      <div class="scenario-card">
+        <img src="static/images/survey/perpendicular.png" alt="Perpendicular Traffic" style="height:100px; margin-bottom:0.5rem;">
+        <div class="sc-name">Perpendicular Traffic</div>
+        <div class="sc-desc">Crossing paths perpendicularly; tests right-of-way management at intersections.</div>
+      </div>
+      <div class="scenario-card">
+        <img src="static/images/survey/circular.png" alt="Circular Traffic" style="height:100px; margin-bottom:0.5rem;">
+        <div class="sc-name">Circular Traffic</div>
+        <div class="sc-desc">Circular flow patterns; tests merging, navigating through, and exiting without deadlocks.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 3. Algorithm Paradigms -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Algorithm Paradigms</h2>
+    <div class="section-divider"></div>
+    <p class="has-text-centered" style="margin-bottom:1rem; color:#555;">SMG solvers are categorized into four broad paradigms, each governing how agents in a coupling set generate strategies.</p>
+
+    <div class="paradigm-grid">
+      <div class="paradigm-card marl">
+        <div class="p-icon">&#129302;</div>
+        <div class="p-name">MARL</div>
+        <div class="p-desc">Multi-Agent Reinforcement Learning. Agents learn policies through interaction; models strategic coupling via stochastic games. Handles non-stationarity from other learning agents.</div>
+      </div>
+      <div class="paradigm-card mapf">
+        <div class="p-icon">&#128506;</div>
+        <div class="p-name">MAPF</div>
+        <div class="p-desc">Multi-Agent Path Finding. Computes conflict-free paths on graphs. Discrete, centralized, fully cooperative. Best as a joint-planning subroutine for resolving bottleneck deadlocks.</div>
+      </div>
+      <div class="paradigm-card optim">
+        <div class="p-icon">&#128736;</div>
+        <div class="p-name">Optimization</div>
+        <div class="p-desc">Constrained optimal control (MPC/CBFs). Minimizes cost subject to dynamics and collision constraints. Exposes SMG structure via explicit constraints and multi-objective costs.</div>
+      </div>
+      <div class="paradigm-card other">
+        <div class="p-icon">&#128161;</div>
+        <div class="p-name">Others</div>
+        <div class="p-desc">Heuristics, evolutionary algorithms, game theory, and hybrid approaches. Adaptable and well-suited for warehousing, logistics, and large-scale systems.</div>
+      </div>
+    </div>
+
+    <!-- Representative solvers figure -->
+    <h3 class="title is-4" style="margin-top:2.5rem;">Representative SMG Solvers</h3>
+    <div class="columns is-centered" style="margin-top:1rem;">
+      <div class="column has-text-centered">
+        <img src="static/images/survey/cadrl.png" alt="CADRL" style="max-height:180px; border-radius:10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
+        <p style="font-weight:700; margin-top:0.5rem;">CADRL</p>
+        <p style="font-size:0.82rem; color:#666;">Deep RL collision avoidance with LSTM for varying agent counts</p>
+      </div>
+      <div class="column has-text-centered">
+        <img src="static/images/survey/impc.png" alt="IMPC-DR" style="max-height:180px; border-radius:10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
+        <p style="font-weight:700; margin-top:0.5rem;">IMPC-DR</p>
+        <p style="font-size:0.82rem; color:#666;">MPC with buffered Voronoi cells for deadlock prevention</p>
+      </div>
+      <div class="column has-text-centered">
+        <img src="static/images/survey/orca_mapf.png" alt="ORCA-MAPF" style="max-height:180px; border-radius:10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
+        <p style="font-weight:700; margin-top:0.5rem;">ORCA-MAPF</p>
+        <p style="font-size:0.82rem; color:#666;">Hybrid ORCA + local MAPF for deadlock resolution</p>
+      </div>
+      <div class="column has-text-centered">
+        <img src="static/images/survey/gt.png" alt="Auction-Based" style="max-height:180px; border-radius:10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
+        <p style="font-weight:700; margin-top:0.5rem;">Auction-Based</p>
+        <p style="font-size:0.82rem; color:#666;">CBF + auction prioritization for congested scenarios</p>
+      </div>
+      <div class="column has-text-centered">
+        <img src="static/images/survey/rp.png" alt="Right-Hand Rule" style="max-height:180px; border-radius:10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
+        <p style="font-weight:700; margin-top:0.5rem;">Right-Hand Rule</p>
+        <p style="font-size:0.82rem; color:#666;">Clockwise yielding with barrier-function safety constraints</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 4. Taxonomy of SMG Solvers -->
+<section class="section" style="background:#fafbff;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Taxonomy of SMG Solvers</h2>
+    <div class="section-divider"></div>
+    <p class="has-text-centered" style="margin-bottom:1rem; color:#555;">Beyond paradigms, SMG solvers are understood through six system design dimensions that shape how agents resolve strategic coupling.</p>
+
+    <div class="taxonomy-grid">
+      <!-- Coordination -->
+      <div class="tax-card coord">
+        <div class="tax-header">
+          <div class="tax-icon"><i class="fas fa-sitemap"></i></div>
+          <div class="tax-title">Coordination</div>
+        </div>
+        <div class="tax-desc">How agents make decisions and take actions. Ranges from a single central authority directing all agents to fully decentralized independent decision-making.</div>
+        <div class="tax-tags">
+          <span class="tax-tag">Centralized</span>
+          <span class="tax-tag">Distributed</span>
+          <span class="tax-tag">Decentralized</span>
+        </div>
+        <div class="columns is-mobile" style="margin-top:0.8rem;">
+          <div class="column has-text-centered" style="padding:0.3rem;">
+            <img src="static/images/survey/centralized.png" alt="Centralized" style="max-height:80px;">
+            <p style="font-size:0.7rem; color:#888;">Centralized</p>
+          </div>
+          <div class="column has-text-centered" style="padding:0.3rem;">
+            <img src="static/images/survey/distributed.png" alt="Distributed" style="max-height:80px;">
+            <p style="font-size:0.7rem; color:#888;">Distributed</p>
+          </div>
+          <div class="column has-text-centered" style="padding:0.3rem;">
+            <img src="static/images/survey/decentralized.png" alt="Decentralized" style="max-height:80px;">
+            <p style="font-size:0.7rem; color:#888;">Decentralized</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Communication -->
+      <div class="tax-card comm">
+        <div class="tax-header">
+          <div class="tax-icon"><i class="fas fa-comments"></i></div>
+          <div class="tax-title">Communication</div>
+        </div>
+        <div class="tax-desc">Whether agents share information during decision-making. Communicated agents coordinate more effectively but require infrastructure; uncommunicated agents act independently.</div>
+        <div class="tax-tags">
+          <span class="tax-tag">Communicated</span>
+          <span class="tax-tag">Uncommunicated</span>
+        </div>
+        <div class="columns is-mobile" style="margin-top:0.8rem;">
+          <div class="column has-text-centered" style="padding:0.3rem;">
+            <img src="static/images/survey/communicated.png" alt="Communicated" style="max-height:80px;">
+            <p style="font-size:0.7rem; color:#888;">Communicated</p>
+          </div>
+          <div class="column has-text-centered" style="padding:0.3rem;">
+            <img src="static/images/survey/uncommunicated.png" alt="Uncommunicated" style="max-height:80px;">
+            <p style="font-size:0.7rem; color:#888;">Uncommunicated</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deadlock Handling -->
+      <div class="tax-card deadlock">
+        <div class="tax-header">
+          <div class="tax-icon"><i class="fas fa-lock"></i></div>
+          <div class="tax-title">Deadlock Handling</div>
+        </div>
+        <div class="tax-desc">How agents deal with deadlocks &mdash; situations where robot states converge to undesirable equilibria causing stalls. Can be proactive (prevention) or reactive (resolution).</div>
+        <div class="tax-tags">
+          <span class="tax-tag">Prevention (Proactive)</span>
+          <span class="tax-tag">Resolution (Reactive)</span>
+        </div>
+        <div class="columns is-mobile" style="margin-top:0.8rem;">
+          <div class="column has-text-centered" style="padding:0.3rem;">
+            <img src="static/images/survey/deadlock_prevention_v2.png" alt="Prevention" style="max-height:80px;">
+            <p style="font-size:0.7rem; color:#888;">Prevention</p>
+          </div>
+          <div class="column has-text-centered" style="padding:0.3rem;">
+            <img src="static/images/survey/deadlock_resolution_v2.png" alt="Resolution" style="max-height:80px;">
+            <p style="font-size:0.7rem; color:#888;">Resolution</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Invasiveness -->
+      <div class="tax-card invasive">
+        <div class="tax-header">
+          <div class="tax-icon"><i class="fas fa-arrows-alt"></i></div>
+          <div class="tax-title">Invasiveness</div>
+        </div>
+        <div class="tax-desc">Degree of change to an agent's preferred trajectory. Minimally invasive solvers only tweak speed; invasive ones may significantly alter paths and environment.</div>
+        <div class="tax-tags">
+          <span class="tax-tag">Minimally Invasive</span>
+          <span class="tax-tag">Invasive</span>
+        </div>
+        <div class="columns is-mobile" style="margin-top:0.8rem;">
+          <div class="column has-text-centered" style="padding:0.3rem;">
+            <img src="static/images/survey/noninvasive_v2.png" alt="Non-invasive" style="max-height:80px;">
+            <p style="font-size:0.7rem; color:#888;">Non-invasive</p>
+          </div>
+          <div class="column has-text-centered" style="padding:0.3rem;">
+            <img src="static/images/survey/invasive_v2.png" alt="Invasive" style="max-height:80px;">
+            <p style="font-size:0.7rem; color:#888;">Invasive</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cooperation -->
+      <div class="tax-card coop">
+        <div class="tax-header">
+          <div class="tax-icon"><i class="fas fa-handshake"></i></div>
+          <div class="tax-title">Cooperation</div>
+        </div>
+        <div class="tax-desc">Whether agents share cost functions and planning strategies. Fully cooperative agents optimize a common objective; non-cooperative agents prioritize individual goals.</div>
+        <div class="tax-tags">
+          <span class="tax-tag">Fully Cooperative</span>
+          <span class="tax-tag">Semi-Cooperative</span>
+          <span class="tax-tag">Non-Cooperative</span>
+        </div>
+      </div>
+
+      <!-- Observability -->
+      <div class="tax-card observe">
+        <div class="tax-header">
+          <div class="tax-icon"><i class="fas fa-eye"></i></div>
+          <div class="tax-title">Observability</div>
+        </div>
+        <div class="tax-desc">How much information an agent has about others. Ranges from full knowledge of all states to local sensing, predicted observability, belief-space, or minimal awareness.</div>
+        <div class="tax-tags">
+          <span class="tax-tag">Full</span>
+          <span class="tax-tag">Local</span>
+          <span class="tax-tag">Predicted</span>
+          <span class="tax-tag">Minimal</span>
+        </div>
+        <div style="margin-top:0.8rem; text-align:center;">
+          <img src="static/images/survey/obs_FA_FE.png" alt="Observability" style="max-height:90px;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 5. Properties of SMG Solvers -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Desirable Properties of SMG Solvers</h2>
+    <div class="section-divider"></div>
+
+    <div class="props-grid">
+      <div class="prop-card">
+        <span class="prop-icon">&#128737;&#65039;</span>
+        <div class="prop-name">Safety</div>
+        <div class="prop-desc">Avoid collisions at all times. Achieved via ORCA, CBFs, or MPC with collision constraints. Critical in tight SMG spaces.</div>
+      </div>
+      <div class="prop-card">
+        <span class="prop-icon">&#9654;&#65039;</span>
+        <div class="prop-name">Liveness</div>
+        <div class="prop-desc">Continuously make progress toward goals. Prevents deadlocks where overly-safe robots stall forever.</div>
+      </div>
+      <div class="prop-card">
+        <span class="prop-icon">&#9878;&#65039;</span>
+        <div class="prop-name">Fairness</div>
+        <div class="prop-desc">Ensure equitable outcomes. Measured by the gap between each agent's reward and the socially optimal allocation.</div>
+      </div>
+      <div class="prop-card">
+        <span class="prop-icon">&#129309;</span>
+        <div class="prop-name">Social Compliance</div>
+        <div class="prop-desc">Respect norms and expectations in shared spaces. Navigate without annoying or disturbing humans around.</div>
+      </div>
+      <div class="prop-card">
+        <span class="prop-icon">&#128200;</span>
+        <div class="prop-name">Scalability</div>
+        <div class="prop-desc">Handle growing agent counts without performance loss. Evaluated on coupling set size, not total agents.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 6. Evaluation Metrics -->
+<section class="section" style="background:#fafbff;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Evaluation Metrics</h2>
+    <div class="section-divider"></div>
+    <p class="has-text-centered" style="margin-bottom:1rem; color:#555;">Beyond standard MRN metrics, SMGs require game-aware metrics that capture the unique challenges of high-agency interactions.</p>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="m-badge" style="background: linear-gradient(135deg, #3298dc, #209cee);">&Delta;V</div>
+        <div>
+          <div class="m-name">Avg &Delta;V (Velocity Change)</div>
+          <div class="m-desc">Measures movement smoothness &mdash; how much an agent's speed changes on average per time step. Lower is smoother.</div>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="m-badge" style="background: linear-gradient(135deg, #48c774, #3ec46d);">&#8986;</div>
+        <div>
+          <div class="m-name">Average Delay</div>
+          <div class="m-desc">Additional travel time due to multi-agent interactions compared to solo navigation. Captures congestion impact.</div>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="m-badge" style="background: linear-gradient(135deg, #ff3860, #ff1443);">&#8633;</div>
+        <div>
+          <div class="m-name">Path Deviation</div>
+          <div class="m-desc">Hausdorff distance between actual and ideal paths. Quantifies detours caused by interactions and deadlock avoidance.</div>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="m-badge" style="background: linear-gradient(135deg, #7c5cbf, #9b59b6);">&#8644;</div>
+        <div>
+          <div class="m-name">Flow Rate</div>
+          <div class="m-desc">Density-normalized throughput at bottlenecks (doorways, corridors). Analogous to traffic flow per unit time per unit width.</div>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="m-badge" style="background: linear-gradient(135deg, #f7971e, #ffd200);">&#9878;</div>
+        <div>
+          <div class="m-name">Fairness (TTF)</div>
+          <div class="m-desc">Game-theoretic measure of how equitably rewards are distributed compared to the socially optimal cooperative strategy.</div>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="m-badge" style="background: linear-gradient(135deg, #00d1b2, #00c4a7);">IS</div>
+        <div>
+          <div class="m-name">Influence Score</div>
+          <div class="m-desc">Counterfactual measure of how much an agent's presence perturbs others' control behavior. Higher = more disruptive.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 7. General Trends & Open Challenges -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">General Trends &amp; Open Challenges</h2>
+    <div class="section-divider"></div>
+
+    <div class="paradigm-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+      <div class="paradigm-card" style="background: linear-gradient(135deg, #2c3e50, #4ca1af);">
+        <div class="p-icon">&#128247;</div>
+        <div class="p-name">Visual Inputs</div>
+        <div class="p-desc">Moving from perfect state to onboard sensors (LiDAR, cameras). Safe and deadlock-free MRN with high-dimensional inputs like point clouds remains a key challenge.</div>
+      </div>
+      <div class="paradigm-card" style="background: linear-gradient(135deg, #e55d87, #5fc3e4);">
+        <div class="p-icon">&#129489;</div>
+        <div class="p-name">SMGs with Humans</div>
+        <div class="p-desc">Robots navigating among pedestrians in dense environments. Requires predicting human intent and being socially compliant while avoiding deadlocks.</div>
+      </div>
+      <div class="paradigm-card" style="background: linear-gradient(135deg, #834d9b, #d04ed6);">
+        <div class="p-icon">&#127758;</div>
+        <div class="p-name">Digital Twins</div>
+        <div class="p-desc">High-fidelity simulators reflecting real-world complexity. Current simulators lack multi-agent support in constrained indoor environments.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Real-world SMG photo -->
+<section class="section" style="background:#fafbff; padding-top:2rem; padding-bottom:2rem;">
+  <div class="container is-max-desktop has-text-centered">
+    <img src="static/images/survey/smg.png" alt="Real-world SMG: robot and human navigating a doorway" style="max-width:550px; width:100%; border-radius:14px; box-shadow: 0 4px 20px rgba(0,0,0,0.12);">
+    <p style="font-size:0.9rem; color:#666; margin-top:0.8rem; font-style:italic;">A real-world Social Mini-Game: a robot and human competing for space at a doorway.</p>
+  </div>
+</section>
+
+
+<!-- ===== END VISUAL SURVEY SUMMARY ===== -->
 
 
 <!-- MODIFIED SECTION: Results Showcase with 3x3 GIF Grid -->
