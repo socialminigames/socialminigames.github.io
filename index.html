@@ -6,7 +6,7 @@
   <meta name="description"
         content="A Survey of Multi-Robot Navigation in Social Mini-Games — Interactive Demo & Paper.">
   <meta name="keywords" content="Multi-Robot Navigation, Social Mini-Games, Robotics, ORCA, IMPC-DR">
-  <title>MRN in SMGs: Multi-Robot Navigation in Social Mini-Games</title>
+  <title>Multi-Robot Navigation in Social Mini-Games: Definitions, Taxonomy, and Algorithms</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -36,7 +36,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">
-            A Survey of Multi-Robot Navigation in Social Mini-Games
+            Multi-Robot Navigation in Social Mini-Games: Definitions, Taxonomy, and Algorithms
           </h1>
 
           <div class="is-size-5 publication-authors">
@@ -62,7 +62,7 @@
           </div>
 
           <div style="margin-top:0.5rem;">
-            <span class="accepted-badge">Accepted</span>
+            <span class="accepted-badge">Accepted for publication in Autonomous Robots 2026</span>
           </div>
 
           <div class="column has-text-centered">
@@ -251,13 +251,13 @@
   </div>
 </section>
 
-<!-- 3C. Taxonomy at a Glance (single table) -->
+<!-- 3C. Taxonomy — Interactive Reference Filter -->
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Taxonomy at a Glance</h2>
     <div class="section-divider"></div>
     <p class="has-text-centered" style="margin-bottom:1rem; color:#555; font-size:0.92rem;">
-      SMG solvers are classified along six design dimensions.
+      Click any category to see the papers classified under it.
     </p>
 
     <table class="taxonomy-table">
@@ -271,41 +271,64 @@
         <tr>
           <td class="tax-dim">Coordination</td>
           <td class="tax-cats">
-            <span>Centralized</span> <span>Distributed</span> <span>Decentralized</span>
+            <span class="tax-btn" data-cat="Centralized">Centralized</span>
+            <span class="tax-btn" data-cat="Distributed">Distributed</span>
+            <span class="tax-btn" data-cat="Decentralized">Decentralized</span>
           </td>
         </tr>
         <tr>
           <td class="tax-dim">Communication</td>
           <td class="tax-cats">
-            <span>Communicated</span> <span>Uncommunicated</span>
+            <span class="tax-btn" data-cat="Communicated">Communicated</span>
+            <span class="tax-btn" data-cat="Uncommunicated">Uncommunicated</span>
           </td>
         </tr>
         <tr>
           <td class="tax-dim">Deadlock Handling</td>
           <td class="tax-cats">
-            <span>Prevention</span> <span>Resolution</span>
+            <span class="tax-btn" data-cat="Deadlock Prevention">Prevention</span>
+            <span class="tax-btn" data-cat="Deadlock Resolution">Resolution</span>
           </td>
         </tr>
         <tr>
           <td class="tax-dim">Invasiveness</td>
           <td class="tax-cats">
-            <span>Minimally Invasive</span> <span>Invasive</span>
+            <span class="tax-btn" data-cat="Minimally Invasive">Minimally Invasive</span>
+            <span class="tax-btn" data-cat="Invasive">Invasive</span>
           </td>
         </tr>
         <tr>
           <td class="tax-dim">Cooperation</td>
           <td class="tax-cats">
-            <span>Fully Cooperative</span> <span>Semi-Cooperative</span> <span>Non-Cooperative</span>
+            <span class="tax-btn" data-cat="Fully Cooperative">Fully Cooperative</span>
+            <span class="tax-btn" data-cat="Semi-Cooperative">Semi-Cooperative</span>
           </td>
         </tr>
         <tr>
           <td class="tax-dim">Observability</td>
           <td class="tax-cats">
-            <span>Full</span> <span>Local</span> <span>Predicted</span> <span>Minimal</span>
+            <span class="tax-btn" data-cat="Full Observability">Full</span>
+            <span class="tax-btn" data-cat="Local Observability">Local</span>
           </td>
         </tr>
       </tbody>
     </table>
+
+    <!-- Results panel -->
+    <div id="tax-results" style="display:none; margin-top:1.2rem;">
+      <div id="tax-results-header" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.8rem;">
+        <h4 class="title is-5" id="tax-results-title" style="margin-bottom:0;"></h4>
+        <button class="button is-small is-light" id="tax-results-close">Clear</button>
+      </div>
+      <!-- Paradigm legend -->
+      <div style="margin-bottom:0.8rem; font-size:0.8rem; color:#666;">
+        <span style="display:inline-block; width:12px; height:12px; background:#209cee; border-radius:3px; vertical-align:middle;"></span> MARL &nbsp;
+        <span style="display:inline-block; width:12px; height:12px; background:#667eea; border-radius:3px; vertical-align:middle;"></span> Optimization &nbsp;
+        <span style="display:inline-block; width:12px; height:12px; background:#48c774; border-radius:3px; vertical-align:middle;"></span> MAPF &nbsp;
+        <span style="display:inline-block; width:12px; height:12px; background:#ff9f43; border-radius:3px; vertical-align:middle;"></span> Others
+      </div>
+      <div id="tax-results-list" style="display:flex; flex-wrap:wrap; gap:0.4rem;"></div>
+    </div>
   </div>
 </section>
 
@@ -447,6 +470,202 @@
 <!-- Simulator scripts (loaded after DOM) -->
 <script src="./static/js/scenarios.js"></script>
 <script src="./static/js/simulator.js"></script>
+
+<!-- Taxonomy interactive filter -->
+<script>
+(function() {
+  var defined = {
+    "chung2024deadlock": "Chung et al., 2024",
+    "chandra2025deadlock": "Chandra et al., 2025",
+    "gao2024pce": "Gao et al., 2024",
+    "ye2022multi": "Ye et al., 2022",
+    "arul2023ds": "Arul et al., 2023",
+    "he2022deadlock": "He et al., 2022",
+    "fujitani2022deadlock": "Fujitani et al., 2022",
+    "sauer2022decentralized": "Sauer et al., 2022",
+    "chandra2022gameplan": "Chandra et al., 2022",
+    "wagner2022minimizing": "Wagner et al., 2022",
+    "yamauchi2022standby": "Yamauchi et al., 2022",
+    "alonso2018reactive": "Alonso-Mora et al., 2018",
+    "decastro2018collision": "DeCastro et al., 2018",
+    "yong2017cooperative": "Yong et al., 2017",
+    "wang2017safety": "Wang et al., 2017",
+    "cirillo2014lattice": "Cirillo et al., 2014",
+    "csenbacslar2023mrnav": "Csenbacslar et al., 2023",
+    "garg2024deadlock": "Garg et al., 2024",
+    "garg2024large": "Garg et al., 2024b",
+    "ma2021distributed": "Ma et al., 2021",
+    "wang2023polynomial": "Wang et al., 2023",
+    "park2023decentralized": "Park et al., 2023a",
+    "park2023dlsc": "Park et al., 2023b",
+    "muller2023multi": "Muller et al., 2023",
+    "chen2023multi": "Chen et al., 2023",
+    "das2023autonomous": "Das et al., 2023",
+    "toumieh2022decentralized": "Toumieh et al., 2022",
+    "chan2022multi": "Chan et al., 2022",
+    "zakir2022robot": "Zakir et al., 2022",
+    "goto2022solving": "Goto et al., 2022",
+    "grover2023before": "Grover et al., 2023",
+    "turhanlar2021deadlock": "Turhanlar et al., 2021",
+    "heselden2021crh": "Heselden et al., 2021",
+    "abdullhak2021deadlock": "Abdullhak et al., 2021",
+    "coskun2021deadlock": "Coskun et al., 2021",
+    "dergachev2021distributed": "Dergachev et al., 2021",
+    "kim2021multi": "Kim et al., 2021",
+    "zhang2021natural": "Zhang et al., 2021",
+    "mannucci2021provably": "Mannucci et al., 2021",
+    "pratissoli2023hierarchical": "Pratissoli et al., 2023",
+    "turhanlar2024autonomous": "Turhanlar et al., 2024",
+    "zhou2020distributed": "Zhou et al., 2020",
+    "wu2019collision": "Wu et al., 2019",
+    "das2019sparcas": "Das et al., 2019a",
+    "zhou2018distributed": "Zhou et al., 2018",
+    "rao2018trust": "Rao et al., 2018",
+    "gregoire2018locally": "Gregoire et al., 2018",
+    "wang2018trust": "Wang et al., 2018",
+    "chen2018verifiable": "Chen et al., 2018",
+    "zhou2017collision": "Zhou et al., 2017",
+    "draganjac2016decentralized": "Draganjac et al., 2016",
+    "kimmel2016decentralized": "Kimmel et al., 2016",
+    "vcap2016provably": "Cap et al., 2016",
+    "iftikhar2016resource": "Iftikhar et al., 2016",
+    "sun2014behavior": "Sun et al., 2014",
+    "wei2014multi": "Wei et al., 2014",
+    "csenbacslar2021rlss": "Csenbacslar et al., 2021",
+    "csenbacslar2024dream": "Csenbacslar et al., 2024",
+    "das2019tarmac": "Das et al., 2019b",
+    "sukhbaatar2016commnet": "Sukhbaatar et al., 2016",
+    "wang2020multi": "Wang et al., 2020",
+    "cao2021multi": "Cao et al., 2021",
+    "maoudj2023improved": "Maoudj et al., 2023",
+    "arif2022robot": "Arif et al., 2022",
+    "schafer2023rmtruck": "Schafer et al., 2023",
+    "zhang2025adaptive": "Zhang et al., 2025a",
+    "zhang2025deadlock": "Zhang et al., 2025b",
+    "lee2025merry": "Lee et al., 2025",
+    "everett2019primal": "Everett et al., 2019",
+    "ma2016optimal": "Ma et al., 2016",
+    "patwardhan2022distributing": "Patwardhan et al., 2022",
+    "amador2014dynamic": "Amador et al., 2014",
+    "freda20193d": "Freda et al., 2019",
+    "sadhu2017improving": "Sadhu et al., 2017",
+    "ma2017multi": "Ma et al., 2017",
+    "zheng2024mcca": "Zheng et al., 2024",
+    "park2022decentralized": "Park et al., 2022",
+    "chen2024deadlock": "Chen et al., 2024",
+    "xie2023drl": "Xie et al., 2023",
+    "cappello2020hybrid": "Cappello et al., 2020",
+    "mavrogiannis2020decentralized": "Mavrogiannis et al., 2020",
+    "pianpak2019distributed": "Pianpak et al., 2019",
+    "grover2022semantically": "Grover et al., 2022",
+    "wang2016safety": "Wang et al., 2016",
+    "desaraju2012decentralized": "Desaraju et al., 2012",
+    "matsuura1998deadlock": "Matsuura et al., 1998",
+    "everett2021collision": "Everett et al., 2021"
+  };
+
+  var PARADIGM_COLORS = {
+    "MARL": "#209cee",
+    "Optimization": "#667eea",
+    "MAPF": "#48c774",
+    "Others": "#ff9f43"
+  };
+
+  var TAX_DATA = {
+    "Centralized": [
+      {k:"chung2024deadlock",p:"MAPF"},{k:"chandra2025deadlock",p:"Optimization"},{k:"gao2024pce",p:"MAPF"},{k:"ye2022multi",p:"MARL"},{k:"arul2023ds",p:"Optimization"},{k:"he2022deadlock",p:"Optimization"},{k:"fujitani2022deadlock",p:"MARL"},{k:"sauer2022decentralized",p:"Others"},{k:"chandra2022gameplan",p:"Optimization"},{k:"wagner2022minimizing",p:"MARL"},{k:"yamauchi2022standby",p:"MAPF"},{k:"alonso2018reactive",p:"MAPF"},{k:"decastro2018collision",p:"MAPF"},{k:"yong2017cooperative",p:"Optimization"},{k:"wang2017safety",p:"Optimization"},{k:"cirillo2014lattice",p:"MAPF"},{k:"csenbacslar2023mrnav",p:"Optimization"}
+    ],
+    "Decentralized": [
+      {k:"garg2024deadlock",p:"Optimization"},{k:"garg2024large",p:"MARL"},{k:"ma2021distributed",p:"MARL"},{k:"wang2023polynomial",p:"Others"},{k:"park2023decentralized",p:"Optimization"},{k:"park2023dlsc",p:"Optimization"},{k:"muller2023multi",p:"MARL"},{k:"chen2023multi",p:"Optimization"},{k:"das2023autonomous",p:"Others"},{k:"toumieh2022decentralized",p:"Optimization"},{k:"chan2022multi",p:"MAPF"},{k:"ye2022multi",p:"MAPF"},{k:"zakir2022robot",p:"MAPF"},{k:"goto2022solving",p:"MARL"},{k:"grover2023before",p:"Optimization"},{k:"turhanlar2021deadlock",p:"Others"},{k:"heselden2021crh",p:"MAPF"},{k:"abdullhak2021deadlock",p:"Optimization"},{k:"coskun2021deadlock",p:"Others"},{k:"dergachev2021distributed",p:"MARL"},{k:"kim2021multi",p:"Optimization"},{k:"zhang2021natural",p:"Optimization"},{k:"mannucci2021provably",p:"Optimization"},{k:"pratissoli2023hierarchical",p:"Others"},{k:"turhanlar2024autonomous",p:"Others"},{k:"zhou2020distributed",p:"MAPF"},{k:"wu2019collision",p:"Optimization"},{k:"das2019sparcas",p:"MAPF"},{k:"zhou2018distributed",p:"MAPF"},{k:"rao2018trust",p:"MAPF"},{k:"gregoire2018locally",p:"Optimization"},{k:"wang2018trust",p:"MAPF"},{k:"chen2018verifiable",p:"Optimization"},{k:"zhou2017collision",p:"MAPF"},{k:"draganjac2016decentralized",p:"Others"},{k:"kimmel2016decentralized",p:"Optimization"},{k:"vcap2016provably",p:"MAPF"},{k:"iftikhar2016resource",p:"MAPF"},{k:"sun2014behavior",p:"MAPF"},{k:"wei2014multi",p:"MAPF"},{k:"csenbacslar2021rlss",p:"Optimization"},{k:"csenbacslar2024dream",p:"Optimization"}
+    ],
+    "Distributed": [
+      {k:"das2019tarmac",p:"MARL"},{k:"sukhbaatar2016commnet",p:"Others"},{k:"wang2020multi",p:"Optimization"},{k:"cao2021multi",p:"MAPF"},{k:"csenbacslar2023mrnav",p:"Optimization"}
+    ],
+    "Communicated": [
+      {k:"gao2024pce",p:"MAPF"},{k:"maoudj2023improved",p:"MAPF"},{k:"ye2022multi",p:"MARL"},{k:"ma2021distributed",p:"MAPF"},{k:"garg2024deadlock",p:"Optimization"},{k:"garg2024large",p:"Optimization"},{k:"park2023decentralized",p:"Optimization"},{k:"pratissoli2023hierarchical",p:"Others"},{k:"das2023autonomous",p:"Others"},{k:"turhanlar2024autonomous",p:"Others"},{k:"he2022deadlock",p:"Optimization"},{k:"fujitani2022deadlock",p:"MARL"},{k:"chan2022multi",p:"MAPF"},{k:"arif2022robot",p:"Others"},{k:"zakir2022robot",p:"MAPF"},{k:"yamauchi2022standby",p:"MAPF"},{k:"turhanlar2021deadlock",p:"Others"},{k:"heselden2021crh",p:"MARL"},{k:"coskun2021deadlock",p:"Others"},{k:"zhang2021natural",p:"Optimization"},{k:"mannucci2021provably",p:"Optimization"},{k:"zhou2020distributed",p:"MAPF"},{k:"wu2019collision",p:"Optimization"},{k:"das2019sparcas",p:"MAPF"},{k:"alonso2018reactive",p:"Others"},{k:"wang2018trust",p:"MAPF"},{k:"chen2018verifiable",p:"Optimization"},{k:"decastro2018collision",p:"MAPF"},{k:"yong2017cooperative",p:"Optimization"},{k:"wang2017safety",p:"Optimization"},{k:"draganjac2016decentralized",p:"Others"},{k:"iftikhar2016resource",p:"MAPF"},{k:"cirillo2014lattice",p:"MAPF"},{k:"sun2014behavior",p:"MAPF"},{k:"csenbacslar2023mrnav",p:"Optimization"},{k:"das2019tarmac",p:"MARL"}
+    ],
+    "Uncommunicated": [
+      {k:"chung2024deadlock",p:"MAPF"},{k:"chandra2025deadlock",p:"Optimization"},{k:"wang2023polynomial",p:"MAPF"},{k:"park2023dlsc",p:"Optimization"},{k:"arul2023ds",p:"Optimization"},{k:"muller2023multi",p:"MARL"},{k:"chen2023multi",p:"Optimization"},{k:"schafer2023rmtruck",p:"Optimization"},{k:"sauer2022decentralized",p:"Others"},{k:"toumieh2022decentralized",p:"Optimization"},{k:"chandra2022gameplan",p:"Optimization"},{k:"wagner2022minimizing",p:"MAPF"},{k:"chan2022multi",p:"MAPF"},{k:"csenbacslar2021rlss",p:"Optimization"},{k:"goto2022solving",p:"MARL"},{k:"grover2023before",p:"Optimization"},{k:"abdullhak2021deadlock",p:"Optimization"},{k:"dergachev2021distributed",p:"MAPF"},{k:"kim2021multi",p:"Optimization"},{k:"zhou2018distributed",p:"MAPF"},{k:"rao2018trust",p:"MAPF"},{k:"gregoire2018locally",p:"MAPF"},{k:"zhou2017collision",p:"MAPF"},{k:"kimmel2016decentralized",p:"Others"},{k:"vcap2016provably",p:"MAPF"},{k:"wei2014multi",p:"MAPF"},{k:"csenbacslar2024dream",p:"Optimization"}
+    ],
+    "Deadlock Prevention": [
+      {k:"chung2024deadlock",p:"MAPF"},{k:"chandra2025deadlock",p:"Optimization"},{k:"gao2024pce",p:"MAPF"},{k:"ye2022multi",p:"MARL"},{k:"arul2023ds",p:"Optimization"},{k:"he2022deadlock",p:"Optimization"},{k:"fujitani2022deadlock",p:"MAPF"},{k:"sauer2022decentralized",p:"Others"},{k:"chandra2022gameplan",p:"Optimization"},{k:"wagner2022minimizing",p:"MAPF"},{k:"csenbacslar2021rlss",p:"Optimization"},{k:"yamauchi2022standby",p:"MAPF"},{k:"turhanlar2024autonomous",p:"Others"},{k:"pratissoli2023hierarchical",p:"Others"},{k:"turhanlar2021deadlock",p:"Others"},{k:"heselden2021crh",p:"MAPF"},{k:"goto2022solving",p:"MARL"},{k:"chan2022multi",p:"MAPF"},{k:"zhou2020distributed",p:"MAPF"},{k:"wu2019collision",p:"Optimization"},{k:"das2019sparcas",p:"MAPF"},{k:"zhou2018distributed",p:"MAPF"},{k:"rao2018trust",p:"MAPF"},{k:"gregoire2018locally",p:"Optimization"},{k:"wang2018trust",p:"MAPF"},{k:"zhou2017collision",p:"MAPF"},{k:"draganjac2016decentralized",p:"Others"},{k:"kimmel2016decentralized",p:"Others"},{k:"vcap2016provably",p:"MAPF"},{k:"cirillo2014lattice",p:"MAPF"},{k:"lee2025merry",p:"Others"}
+    ],
+    "Deadlock Resolution": [
+      {k:"garg2024deadlock",p:"Optimization"},{k:"garg2024large",p:"Optimization"},{k:"maoudj2023improved",p:"MAPF"},{k:"wang2023polynomial",p:"MAPF"},{k:"park2023decentralized",p:"Optimization"},{k:"park2023dlsc",p:"Optimization"},{k:"muller2023multi",p:"MAPF"},{k:"chen2023multi",p:"Optimization"},{k:"das2023autonomous",p:"Others"},{k:"schafer2023rmtruck",p:"Optimization"},{k:"toumieh2022decentralized",p:"Optimization"},{k:"ye2022multi",p:"MAPF"},{k:"arif2022robot",p:"Others"},{k:"zakir2022robot",p:"MAPF"},{k:"grover2023before",p:"Optimization"},{k:"abdullhak2021deadlock",p:"Optimization"},{k:"coskun2021deadlock",p:"Others"},{k:"ma2021distributed",p:"MARL"},{k:"dergachev2021distributed",p:"MAPF"},{k:"kim2021multi",p:"Optimization"},{k:"zhang2021natural",p:"Optimization"},{k:"alonso2018reactive",p:"Others"},{k:"chen2018verifiable",p:"Optimization"},{k:"decastro2018collision",p:"MAPF"},{k:"yong2017cooperative",p:"Optimization"},{k:"wang2017safety",p:"Optimization"},{k:"iftikhar2016resource",p:"MAPF"},{k:"sun2014behavior",p:"MAPF"},{k:"wei2014multi",p:"MAPF"},{k:"csenbacslar2024dream",p:"Optimization"},{k:"csenbacslar2023mrnav",p:"Optimization"},{k:"zhang2025adaptive",p:"Optimization"},{k:"zhang2025deadlock",p:"Optimization"}
+    ],
+    "Invasive": [
+      {k:"garg2024deadlock",p:"Optimization"},{k:"garg2024large",p:"MARL"},{k:"ma2021distributed",p:"MARL"},{k:"wang2023polynomial",p:"Others"},{k:"park2023decentralized",p:"Optimization"},{k:"park2023dlsc",p:"Optimization"},{k:"muller2023multi",p:"MARL"},{k:"chen2023multi",p:"Optimization"},{k:"das2023autonomous",p:"Others"},{k:"toumieh2022decentralized",p:"Optimization"},{k:"ye2022multi",p:"MAPF"},{k:"zakir2022robot",p:"MAPF"},{k:"goto2022solving",p:"MARL"},{k:"grover2023before",p:"Optimization"},{k:"abdullhak2021deadlock",p:"Optimization"},{k:"coskun2021deadlock",p:"Others"},{k:"dergachev2021distributed",p:"MARL"},{k:"kim2021multi",p:"Optimization"},{k:"zhang2021natural",p:"Optimization"},{k:"mannucci2021provably",p:"Optimization"},{k:"alonso2018reactive",p:"Optimization"},{k:"chen2018verifiable",p:"Optimization"},{k:"decastro2018collision",p:"MAPF"},{k:"yong2017cooperative",p:"Optimization"},{k:"wang2017safety",p:"Optimization"},{k:"kimmel2016decentralized",p:"Others"},{k:"iftikhar2016resource",p:"MAPF"},{k:"sun2014behavior",p:"MAPF"},{k:"wei2014multi",p:"MAPF"},{k:"csenbacslar2021rlss",p:"Optimization"},{k:"csenbacslar2024dream",p:"Optimization"},{k:"csenbacslar2023mrnav",p:"Optimization"}
+    ],
+    "Minimally Invasive": [
+      {k:"chung2024deadlock",p:"MAPF"},{k:"chandra2025deadlock",p:"Optimization"},{k:"gao2024pce",p:"MAPF"},{k:"ye2022multi",p:"MARL"},{k:"arul2023ds",p:"Optimization"},{k:"he2022deadlock",p:"Optimization"},{k:"fujitani2022deadlock",p:"MARL"},{k:"sauer2022decentralized",p:"Others"},{k:"chandra2022gameplan",p:"Optimization"},{k:"wagner2022minimizing",p:"MARL"},{k:"yamauchi2022standby",p:"MAPF"},{k:"turhanlar2024autonomous",p:"Others"},{k:"pratissoli2023hierarchical",p:"Others"},{k:"turhanlar2021deadlock",p:"Others"},{k:"cirillo2014lattice",p:"MAPF"},{k:"heselden2021crh",p:"MAPF"},{k:"zhou2020distributed",p:"MAPF"},{k:"wu2019collision",p:"Optimization"},{k:"das2019sparcas",p:"MAPF"},{k:"zhou2018distributed",p:"MAPF"},{k:"rao2018trust",p:"MAPF"},{k:"gregoire2018locally",p:"Optimization"},{k:"wang2018trust",p:"MAPF"},{k:"zhou2017collision",p:"MAPF"},{k:"draganjac2016decentralized",p:"Others"},{k:"vcap2016provably",p:"MAPF"},{k:"das2019tarmac",p:"MARL"}
+    ],
+    "Fully Cooperative": [
+      {k:"everett2019primal",p:"Optimization"},{k:"ma2016optimal",p:"Optimization"},{k:"chung2024deadlock",p:"MAPF"},{k:"gao2024pce",p:"MAPF"},{k:"das2023autonomous",p:"Optimization"},{k:"ye2022multi",p:"MARL"},{k:"patwardhan2022distributing",p:"Others"},{k:"chen2018verifiable",p:"Optimization"},{k:"amador2014dynamic",p:"MAPF"},{k:"kim2021multi",p:"MAPF"},{k:"freda20193d",p:"Others"},{k:"yong2017cooperative",p:"Optimization"},{k:"sadhu2017improving",p:"MARL"},{k:"ma2017multi",p:"MAPF"},{k:"turhanlar2021deadlock",p:"Others"},{k:"cirillo2014lattice",p:"MAPF"},{k:"arif2022robot",p:"MAPF"},{k:"zakir2022robot",p:"Others"}
+    ],
+    "Semi-Cooperative": [
+      {k:"chandra2025deadlock",p:"Optimization"},{k:"garg2024large",p:"MARL"},{k:"zheng2024mcca",p:"Optimization"},{k:"maoudj2023improved",p:"MAPF"},{k:"wang2023polynomial",p:"Others"},{k:"park2022decentralized",p:"MARL"},{k:"chen2024deadlock",p:"Optimization"},{k:"park2023dlsc",p:"Optimization"},{k:"xie2023drl",p:"MARL"},{k:"arul2023ds",p:"Optimization"},{k:"muller2023multi",p:"MARL"},{k:"schafer2023rmtruck",p:"Optimization"},{k:"chen2023multi",p:"Optimization"},{k:"turhanlar2024autonomous",p:"Others"},{k:"he2022deadlock",p:"Optimization"},{k:"fujitani2022deadlock",p:"MARL"},{k:"park2023decentralized",p:"Optimization"},{k:"toumieh2022decentralized",p:"Optimization"},{k:"chandra2022gameplan",p:"Optimization"},{k:"wagner2022minimizing",p:"MARL"},{k:"zhang2021natural",p:"Optimization"},{k:"mannucci2021provably",p:"Optimization"},{k:"cappello2020hybrid",p:"Optimization"},{k:"mavrogiannis2020decentralized",p:"Others"},{k:"zhou2020distributed",p:"MAPF"},{k:"pianpak2019distributed",p:"MAPF"},{k:"grover2022semantically",p:"Optimization"},{k:"das2019sparcas",p:"MAPF"},{k:"zhou2018distributed",p:"MAPF"},{k:"rao2018trust",p:"MAPF"},{k:"wang2018trust",p:"MAPF"},{k:"alonso2018reactive",p:"Optimization"},{k:"gregoire2018locally",p:"Optimization"},{k:"zhou2017collision",p:"MAPF"},{k:"decastro2018collision",p:"MAPF"},{k:"wang2017safety",p:"Optimization"},{k:"draganjac2016decentralized",p:"Others"},{k:"kimmel2016decentralized",p:"Others"},{k:"vcap2016provably",p:"MAPF"},{k:"iftikhar2016resource",p:"MAPF"},{k:"wang2016safety",p:"Optimization"},{k:"sun2014behavior",p:"MAPF"},{k:"wei2014multi",p:"MAPF"},{k:"desaraju2012decentralized",p:"Others"},{k:"matsuura1998deadlock",p:"Others"},{k:"csenbacslar2021rlss",p:"Optimization"},{k:"csenbacslar2024dream",p:"Optimization"},{k:"csenbacslar2023mrnav",p:"Optimization"},{k:"das2019tarmac",p:"MARL"}
+    ],
+    "Full Observability": [
+      {k:"chung2024deadlock",p:"MAPF"},{k:"garg2024large",p:"MARL"},{k:"das2023autonomous",p:"Optimization"},{k:"chen2023multi",p:"Optimization"},{k:"schafer2023rmtruck",p:"Optimization"},{k:"he2022deadlock",p:"Optimization"},{k:"muller2023multi",p:"MARL"},{k:"turhanlar2021deadlock",p:"Others"},{k:"pianpak2019distributed",p:"MAPF"},{k:"das2019sparcas",p:"MAPF"},{k:"wang2018trust",p:"MAPF"},{k:"chen2018verifiable",p:"Optimization"},{k:"yong2017cooperative",p:"Optimization"},{k:"ma2017multi",p:"MAPF"},{k:"vcap2016provably",p:"MAPF"},{k:"iftikhar2016resource",p:"MAPF"},{k:"cirillo2014lattice",p:"MAPF"},{k:"wang2023polynomial",p:"Others"},{k:"arif2022robot",p:"MAPF"},{k:"freda20193d",p:"Others"},{k:"wagner2022minimizing",p:"MARL"},{k:"everett2019primal",p:"Optimization"},{k:"ma2016optimal",p:"Optimization"},{k:"amador2014dynamic",p:"MAPF"},{k:"kim2021multi",p:"MAPF"},{k:"sadhu2017improving",p:"MARL"},{k:"csenbacslar2023mrnav",p:"Optimization"},{k:"csenbacslar2024dream",p:"Optimization"}
+    ],
+    "Local Observability": [
+      {k:"chandra2025deadlock",p:"Optimization"},{k:"zheng2024mcca",p:"Optimization"},{k:"gao2024pce",p:"MAPF"},{k:"maoudj2023improved",p:"MAPF"},{k:"mavrogiannis2020decentralized",p:"Others"},{k:"chen2023multi",p:"Optimization"},{k:"chen2024deadlock",p:"Optimization"},{k:"park2023decentralized",p:"Optimization"},{k:"park2023dlsc",p:"Optimization"},{k:"xie2023drl",p:"MARL"},{k:"patwardhan2022distributing",p:"Others"},{k:"yamauchi2022standby",p:"MAPF"},{k:"grover2023before",p:"Optimization"},{k:"everett2021collision",p:"MARL"},{k:"matsuura1998deadlock",p:"Others"},{k:"ma2021distributed",p:"MARL"},{k:"dergachev2021distributed",p:"MARL"},{k:"zhou2020distributed",p:"MAPF"},{k:"zhou2018distributed",p:"MAPF"},{k:"rao2018trust",p:"MAPF"},{k:"gregoire2018locally",p:"Optimization"},{k:"alonso2018reactive",p:"Optimization"},{k:"wang2016safety",p:"Optimization"},{k:"wang2017safety",p:"Optimization"},{k:"sun2014behavior",p:"MAPF"},{k:"desaraju2012decentralized",p:"Others"},{k:"chandra2022gameplan",p:"Optimization"},{k:"zakir2022robot",p:"Others"},{k:"ye2022multi",p:"MARL"},{k:"zhang2021natural",p:"Optimization"},{k:"mannucci2021provably",p:"Optimization"},{k:"cappello2020hybrid",p:"Optimization"},{k:"park2022decentralized",p:"MARL"},{k:"arul2023ds",p:"Optimization"},{k:"turhanlar2024autonomous",p:"Others"},{k:"fujitani2022deadlock",p:"MARL"},{k:"toumieh2022decentralized",p:"Optimization"},{k:"grover2022semantically",p:"Optimization"},{k:"zhou2017collision",p:"MAPF"},{k:"decastro2018collision",p:"MAPF"},{k:"draganjac2016decentralized",p:"Others"},{k:"kimmel2016decentralized",p:"Others"},{k:"wei2014multi",p:"MAPF"},{k:"csenbacslar2021rlss",p:"Optimization"},{k:"das2019tarmac",p:"MARL"}
+    ]
+  };
+
+  function showCategory(cat) {
+    var refs = TAX_DATA[cat];
+    if (!refs) return;
+
+    // Deduplicate by key
+    var seen = {};
+    var unique = [];
+    refs.forEach(function(r) {
+      if (!seen[r.k]) { seen[r.k] = true; unique.push(r); }
+    });
+
+    var panel = document.getElementById('tax-results');
+    var title = document.getElementById('tax-results-title');
+    var list = document.getElementById('tax-results-list');
+
+    title.textContent = cat + ' (' + unique.length + ' papers)';
+    list.innerHTML = '';
+
+    unique.forEach(function(r) {
+      var el = document.createElement('span');
+      el.className = 'tax-ref-chip';
+      el.style.cssText = 'display:inline-block; padding:0.3rem 0.7rem; border-radius:8px; font-size:0.82rem; font-weight:600; color:#fff; background:' + (PARADIGM_COLORS[r.p] || '#999') + '; cursor:default;';
+      el.textContent = defined[r.k] || r.k;
+      el.title = r.p + ' — ' + r.k;
+      list.appendChild(el);
+    });
+
+    panel.style.display = 'block';
+    panel.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+
+    // Highlight active button
+    document.querySelectorAll('.tax-btn').forEach(function(b) {
+      b.classList.remove('tax-btn-active');
+    });
+    var activeBtn = document.querySelector('.tax-btn[data-cat="' + cat + '"]');
+    if (activeBtn) activeBtn.classList.add('tax-btn-active');
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.tax-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        showCategory(btn.dataset.cat);
+      });
+    });
+    document.getElementById('tax-results-close').addEventListener('click', function() {
+      document.getElementById('tax-results').style.display = 'none';
+      document.querySelectorAll('.tax-btn').forEach(function(b) {
+        b.classList.remove('tax-btn-active');
+      });
+    });
+  });
+})();
+</script>
 
 </body>
 </html>

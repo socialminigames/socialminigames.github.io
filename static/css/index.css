@@ -306,6 +306,47 @@ body {
   font-weight: 600;
 }
 
+/* ── Interactive Taxonomy Buttons ───────────────────────────── */
+.tax-btn {
+  display: inline-block;
+  background: #f0f0f5;
+  color: #4a4a86;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin: 0.15rem 0.25rem;
+  user-select: none;
+}
+.tax-btn:hover {
+  background: #e0e0f0;
+  border-color: #667eea;
+  transform: translateY(-1px);
+}
+.tax-btn-active {
+  background: #667eea !important;
+  color: #fff !important;
+  border-color: #667eea !important;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.35);
+}
+
+/* Reference chips */
+#tax-results {
+  margin-top: 1rem;
+}
+.ref-chip {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border-radius: 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin: 0.2rem 0.15rem;
+  color: #fff;
+}
+
 /* ═══════════════════════════════════════════════════════════════
    GIF DEMOS (existing section — keep working)
    ═══════════════════════════════════════════════════════════════ */
