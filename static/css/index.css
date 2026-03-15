@@ -333,6 +333,15 @@ body {
   box-shadow: 0 2px 8px rgba(102, 126, 234, 0.35);
 }
 
+/* Active row highlight */
+.taxonomy-table tbody tr {
+  transition: background 0.2s ease;
+}
+.taxonomy-table tbody tr.tax-row-active {
+  background: #eef0ff !important;
+  box-shadow: inset 3px 0 0 #667eea;
+}
+
 /* Reference chips */
 #tax-results {
   margin-top: 1rem;

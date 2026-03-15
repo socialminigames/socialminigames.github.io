@@ -564,6 +564,97 @@
     "everett2021collision": "Everett et al., 2021"
   };
 
+  /* Full paper titles for hover tooltips */
+  var titles = {
+    "chung2024deadlock": "Deadlock prevention and multi agent path finding algorithm considering physical constraint for a massive fleet AGV system",
+    "chandra2025deadlock": "Deadlock-free, safe, and decentralized multi-robot navigation in social mini-games via discrete-time control barrier functions",
+    "gao2024pce": "PCE: Multi-Agent Path Finding via Priority-Aware Communication & Experience Learning",
+    "ye2022multi": "Multi-agent pathfinding with communication reinforcement learning and deadlock detection",
+    "arul2023ds": "DS-MPEPC: Safe and deadlock-avoiding robot navigation in cluttered dynamic scenes",
+    "he2022deadlock": "Deadlock avoidance in closed guide-path based multi-AGV systems",
+    "fujitani2022deadlock": "Deadlock-free method for multi-agent pickup and delivery problem using priority inheritance with temporary priority",
+    "sauer2022decentralized": "Decentralized deadlock prevention for self-organizing industrial mobile robot fleets",
+    "chandra2022gameplan": "GAMEPLAN: Game-theoretic multi-agent planning with human drivers at intersections, roundabouts, and merging",
+    "wagner2022minimizing": "Minimizing coordination in multi-agent path finding with dynamic execution",
+    "yamauchi2022standby": "Standby-based deadlock avoidance method for multi-agent pickup and delivery tasks",
+    "alonso2018reactive": "Reactive mission and motion planning with deadlock resolution avoiding dynamic obstacles",
+    "decastro2018collision": "Collision-free reactive mission and motion planning for multi-robot systems",
+    "yong2017cooperative": "Cooperative path planning of robot swarm based on ACO",
+    "wang2017safety": "Safety barrier certificates for collisions-free multirobot systems",
+    "cirillo2014lattice": "A lattice-based approach to multi-robot motion planning for non-holonomic vehicles",
+    "csenbacslar2023mrnav": "MRNav: Multi-robot aware planning and control stack for collision and deadlock-free navigation in cluttered environments",
+    "garg2024deadlock": "Deadlock resolution of connected multi-agent systems using hierarchical control",
+    "garg2024large": "Large language models to the rescue: Deadlock resolution in multi-robot systems",
+    "ma2021distributed": "Distributed heuristic multi-agent path finding with communication",
+    "wang2023polynomial": "A polynomial-time hybrid solver for multi-agent motion navigation against deadlocks",
+    "park2023decentralized": "Decentralized deadlock-free trajectory planning for quadrotor swarm in obstacle-rich environments",
+    "park2023dlsc": "DLSC: Distributed multi-agent trajectory planning in maze-like dynamic environments using linear safe corridor",
+    "muller2023multi": "Multi-agent proximal policy optimization for a deadlock capable transport system",
+    "chen2023multi": "Multi-robot trajectory planning with feasibility guarantee and deadlock resolution in obstacle-dense environments",
+    "das2023autonomous": "Autonomous topological optimisation for multi-robot systems in logistics",
+    "toumieh2022decentralized": "Decentralized multi-agent planning using model predictive control and time-aware safe corridors",
+    "chan2022multi": "Multi-agent pathfinding for deadlock avoidance on rotational movements",
+    "zakir2022robot": "Robot swarms break decision deadlocks in collective perception through cross-inhibition",
+    "goto2022solving": "Solving the deadlock problem with deep reinforcement learning using information from multiple vehicles",
+    "grover2023before": "The before, during, and after of multi-robot deadlock",
+    "turhanlar2021deadlock": "Deadlock and collision prevention algorithms for mobile robots in automated warehouses",
+    "heselden2021crh": "CRH*: A deadlock free framework for scalable prioritised path planning in multi-robot systems",
+    "abdullhak2021deadlock": "Deadlock prediction and recovery for distributed collision avoidance with buffered Voronoi cells",
+    "coskun2021deadlock": "Deadlock-free online plan repair in multi-robot coordination with disturbances",
+    "dergachev2021distributed": "Distributed multi-agent navigation based on reciprocal collision avoidance and locally confined multi-agent path finding",
+    "kim2021multi": "Multi-robot traffic management using MIP path negotiation scheduler",
+    "zhang2021natural": "Natural deadlock resolution for multi-agent multi-swarm navigation",
+    "mannucci2021provably": "On provably safe and live multirobot coordination with online goal posting",
+    "pratissoli2023hierarchical": "Hierarchical traffic management of multi-AGV systems with deadlock prevention applied to industrial environments",
+    "turhanlar2024autonomous": "Autonomous mobile robot travel under deadlock and collision prevention algorithms by agent-based modelling in warehouses",
+    "zhou2020distributed": "A distributed method to avoid higher-order deadlocks in multi-robot systems",
+    "wu2019collision": "Collision-aware task assignment for multi-robot systems",
+    "das2019sparcas": "SPARCAS: A decentralized, truthful multi-agent collision-free path finding mechanism",
+    "zhou2018distributed": "A distributed approach to robust control of multi-robot systems",
+    "rao2018trust": "A trust based navigation control for multi-robot to avoid deadlock in a static environment",
+    "gregoire2018locally": "Locally-optimal multi-robot navigation under delaying disturbances using homotopy constraints",
+    "wang2018trust": "Trust-based multi-robot symbolic motion planning with a human-in-the-loop",
+    "chen2018verifiable": "Verifiable control of robotic swarm from high-level specifications",
+    "zhou2017collision": "Collision and deadlock avoidance in multirobot systems: A distributed approach",
+    "draganjac2016decentralized": "Decentralized control of multi-AGV systems in autonomous warehousing applications",
+    "kimmel2016decentralized": "Decentralized multi-agent path selection using minimal information",
+    "vcap2016provably": "Provably safe and deadlock-free execution of multi-robot plans under delaying disturbances",
+    "iftikhar2016resource": "Resource sharing and deadlock avoidance in multi robot systems using market based approach",
+    "sun2014behavior": "Behavior-based multi-robot collision avoidance",
+    "wei2014multi": "Multi-robot cooperative pathfinding: A decentralized approach",
+    "csenbacslar2021rlss": "RLSS: Real-time multi-robot trajectory replanning using linear spatial separations",
+    "csenbacslar2024dream": "DREAM: Decentralized real-time asynchronous probabilistic trajectory planning for collision-free multi-robot navigation",
+    "das2019tarmac": "TarMAC: Targeted multi-agent communication",
+    "sukhbaatar2016commnet": "Learning multiagent communication with backpropagation",
+    "wang2020multi": "Multi-agent policy gradient with scheduled communication",
+    "cao2021multi": "Multi-agent communication graph optimization with spatial-temporal constraints",
+    "maoudj2023improved": "Improved decentralized cooperative multi-agent path finding for robots with limited communication",
+    "arif2022robot": "Robot coalition formation against time-extended multi-robot tasks",
+    "schafer2023rmtruck": "RMTRUCK: Deadlock-free execution of multi-robot plans under delaying disturbances",
+    "zhang2025adaptive": "Adaptive deadlock avoidance for decentralized multi-agent systems via CBF-inspired risk measurement",
+    "zhang2025deadlock": "Deadlock-aware control for multi-robot coordination with multiple safety constraints",
+    "lee2025merry": "Merry-Go-Round: Safe control of decentralized multi-robot systems with deadlock prevention",
+    "everett2019primal": "PRIMAL: Pathfinding via reinforcement and imitation multi-agent learning",
+    "ma2016optimal": "Optimal target assignment and path finding for teams of agents",
+    "patwardhan2022distributing": "Distributing collaborative multi-robot planning with Gaussian belief propagation",
+    "amador2014dynamic": "Dynamic multi-agent task allocation with spatial and temporal constraints",
+    "freda20193d": "3D multi-robot patrolling with a two-level coordination strategy",
+    "sadhu2017improving": "Improving the speed of convergence of multi-agent Q-learning for cooperative task-planning",
+    "ma2017multi": "Multi-agent path finding with delay probabilities",
+    "zheng2024mcca": "MCCA: A decentralized method for collision and deadlock avoidance with nonholonomic robots",
+    "park2022decentralized": "Decentralized deadlock-free trajectory planning for quadrotor swarm (extended version)",
+    "chen2024deadlock": "Deadlock resolution and recursive feasibility in MPC-based multi-robot trajectory generation",
+    "xie2023drl": "DRL-VO: Learning to navigate through crowded dynamic scenes using velocity obstacles",
+    "cappello2020hybrid": "A hybrid controller for multi-agent collision avoidance via a differential game formulation",
+    "mavrogiannis2020decentralized": "Decentralized multi-agent navigation planning with braids",
+    "pianpak2019distributed": "A distributed solver for multi-agent path finding problems",
+    "grover2022semantically": "Semantically-aware pedestrian intent prediction with barrier functions and mixed-integer QP",
+    "wang2016safety": "Safety barrier certificates for heterogeneous multi-robot systems",
+    "desaraju2012decentralized": "Decentralized path planning for multi-agent teams with complex constraints",
+    "matsuura1998deadlock": "Deadlock avoidance of a multi-agent robot based on a network of chaotic elements",
+    "everett2021collision": "Collision avoidance in pedestrian-rich environments with deep reinforcement learning"
+  };
+
   var PARADIGM_COLORS = {
     "MARL": "#209cee",
     "Optimization": "#667eea",
@@ -636,19 +727,26 @@
       el.className = 'tax-ref-chip';
       el.style.cssText = 'display:inline-block; padding:0.3rem 0.7rem; border-radius:8px; font-size:0.82rem; font-weight:600; color:#fff; background:' + (PARADIGM_COLORS[r.p] || '#999') + '; cursor:default;';
       el.textContent = defined[r.k] || r.k;
-      el.title = r.p + ' — ' + r.k;
+      el.title = (titles[r.k] || r.k) + '\n[' + r.p + ']';
       list.appendChild(el);
     });
 
     panel.style.display = 'block';
     panel.scrollIntoView({behavior: 'smooth', block: 'nearest'});
 
-    // Highlight active button
+    // Highlight active button and its table row
     document.querySelectorAll('.tax-btn').forEach(function(b) {
       b.classList.remove('tax-btn-active');
     });
+    document.querySelectorAll('.taxonomy-table tbody tr').forEach(function(tr) {
+      tr.classList.remove('tax-row-active');
+    });
     var activeBtn = document.querySelector('.tax-btn[data-cat="' + cat + '"]');
-    if (activeBtn) activeBtn.classList.add('tax-btn-active');
+    if (activeBtn) {
+      activeBtn.classList.add('tax-btn-active');
+      var row = activeBtn.closest('tr');
+      if (row) row.classList.add('tax-row-active');
+    }
   }
 
   document.addEventListener('DOMContentLoaded', function() {
@@ -661,6 +759,9 @@
       document.getElementById('tax-results').style.display = 'none';
       document.querySelectorAll('.tax-btn').forEach(function(b) {
         b.classList.remove('tax-btn-active');
+      });
+      document.querySelectorAll('.taxonomy-table tbody tr').forEach(function(tr) {
+        tr.classList.remove('tax-row-active');
       });
     });
   });
