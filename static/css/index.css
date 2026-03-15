@@ -363,11 +363,13 @@ body {
 /* Reference detail card (click-to-expand) */
 #ref-detail {
   margin-top: 1rem;
-  background: #1a1a2e;
-  color: #f0f0f0;
-  border-radius: 12px;
+  background: #fff;
+  color: #363636;
+  border: 1px solid #e0e0e0;
+  border-left: 4px solid #667eea;
+  border-radius: 10px;
   padding: 1.2rem 1.5rem;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
   animation: refDetailIn 0.2s ease;
   line-height: 1.5;
 }
@@ -383,22 +385,23 @@ body {
 }
 .ref-detail-title {
   font-size: 0.95rem;
+  color: #363636;
   display: block;
   margin-bottom: 0.4rem;
 }
 .ref-detail-close {
   background: none;
   border: none;
-  color: #888;
+  color: #999;
   font-size: 1.4rem;
   cursor: pointer;
   padding: 0;
   line-height: 1;
   flex-shrink: 0;
 }
-.ref-detail-close:hover { color: #fff; }
+.ref-detail-close:hover { color: #363636; }
 .ref-detail-authors {
-  color: #aab;
+  color: #666;
   font-size: 0.82rem;
   margin-bottom: 0.5rem;
 }
@@ -413,7 +416,7 @@ body {
 }
 .ref-detail-bib-wrap {
   margin-top: 0.6rem;
-  border-top: 1px solid #333;
+  border-top: 1px solid #eee;
   padding-top: 0.6rem;
 }
 .ref-detail-bib-label {
@@ -428,23 +431,24 @@ body {
   gap: 0.6rem;
 }
 .ref-copy-btn {
-  background: #333;
-  color: #ccc;
-  border: 1px solid #555;
+  background: #f0f0f5;
+  color: #555;
+  border: 1px solid #ddd;
   border-radius: 6px;
   font-size: 0.7rem;
   padding: 0.2rem 0.5rem;
   cursor: pointer;
   font-weight: 600;
 }
-.ref-copy-btn:hover { background: #444; color: #fff; }
+.ref-copy-btn:hover { background: #667eea; color: #fff; border-color: #667eea; }
 .ref-detail-bib {
-  background: #111;
-  color: #8be9fd;
+  background: #f5f6fa;
+  color: #4a4a86;
   font-family: 'Courier New', monospace;
   font-size: 0.75rem;
   padding: 0.8rem;
   border-radius: 8px;
+  border: 1px solid #e0e0e0;
   overflow-x: auto;
   white-space: pre-wrap;
   word-break: break-word;
