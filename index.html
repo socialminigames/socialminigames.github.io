@@ -328,6 +328,7 @@
         <span style="display:inline-block; width:12px; height:12px; background:#ff9f43; border-radius:3px; vertical-align:middle;"></span> Others
       </div>
       <div id="tax-results-list" style="display:flex; flex-wrap:wrap; gap:0.4rem;"></div>
+      <div id="ref-detail" style="display:none;"></div>
     </div>
   </div>
 </section>
@@ -746,6 +747,97 @@
     "everett2021collision": "Everett, M., Chen, Y. F., How, J. P."
   };
 
+  /* Full BibTeX entries */
+  var bibtex = {
+    "abdullhak2021deadlock": "@inproceedings{abdullhak2021deadlock,\n  title={Deadlock prediction and recovery for distributed collision avoidance with buffered voronoi cells},\n  author={Abdullhak, Mohammed and Vardy, Andrew},\n  booktitle={2021 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},\n  pages={429--436},\n  year={2021},\n  organization={IEEE}\n}",
+    "alonso2018reactive": "@article{alonso2018reactive,\n  title={Reactive mission and motion planning with deadlock resolution avoiding dynamic obstacles},\n  author={Alonso-Mora, Javier and DeCastro, Jonathan A and Raman, Vasumathi and Rus, Daniela and Kress-Gazit, Hadas},\n  journal={Autonomous Robots},\n  volume={42},\n  pages={801--824},\n  year={2018},\n  publisher={Springer}\n}",
+    "amador2014dynamic": "@inproceedings{amador2014dynamic,\n  title={Dynamic multi-agent task allocation with spatial and temporal constraints},\n  author={Amador, Sofia and Okamoto, Steven and Zivan, Roie},\n  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},\n  volume={28},\n  number={1},\n  year={2014}\n}",
+    "arif2022robot": "@article{arif2022robot,\n  title={Robot coalition formation against time-extended multi-robot tasks},\n  author={Arif, Muhammad Usman},\n  journal={International Journal of Intelligent Unmanned Systems},\n  volume={10},\n  number={4},\n  pages={468--481},\n  year={2022},\n  publisher={Emerald Publishing Limited}\n}",
+    "arul2023ds": "@inproceedings{arul2023ds,\n  title={Ds-mpepc: Safe and deadlock-avoiding robot navigation in cluttered dynamic scenes},\n  author={Arul, Senthil Hariharan and Park, Jong Jin and Manocha, Dinesh},\n  booktitle={2023 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},\n  pages={2256--2263},\n  year={2023},\n  organization={IEEE}\n}",
+    "cao2021multi": "@inproceedings{cao2021multi,\n  title={Multi-agent communication graph optimization with spatial-temporal constraints},\n  author={Cao, Yuke and Hu, Hexiang and Prorok, Amanda},\n  booktitle={2021 IEEE International Conference on Robotics and Automation (ICRA)},\n  pages={9109--9115},\n  year={2021},\n  organization={IEEE}\n}",
+    "cappello2020hybrid": "@article{cappello2020hybrid,\n  title={A hybrid controller for multi-agent collision avoidance via a differential game formulation},\n  author={Cappello, Domenico and Garcin, Samuel and Mao, Z and Sassano, Mario and Paranjape, Aditya and Mylvaganam, Thulasi},\n  journal={IEEE Transactions on Control Systems Technology},\n  volume={29},\n  number={4},\n  pages={1750--1757},\n  year={2020},\n  publisher={IEEE}\n}",
+    "chan2022multi": "@inproceedings{chan2022multi,\n  title={Multi-agent pathfinding for deadlock avoidance on rotational movements},\n  author={Chan, Frodo Kin Sun and Law, Yan Nei and Lu, Bonny and Chick, Tom and Lai, Edmond Shiao Bun and Ge, Ming},\n  booktitle={2022 17th International Conference on Control, Automation, Robotics and Vision (ICARCV)},\n  pages={765--770},\n  year={2022},\n  organization={IEEE}\n}",
+    "chandra2022gameplan": "@article{chandra2022gameplan,\n  title={Gameplan: Game-theoretic multi-agent planning with human drivers at intersections, roundabouts, and merging},\n  author={Chandra, Rohan and Manocha, Dinesh},\n  journal={IEEE Robotics and Automation Letters},\n  volume={7},\n  number={2},\n  pages={2676--2683},\n  year={2022},\n  publisher={IEEE}\n}",
+    "chandra2025deadlock": "@article{chandra2025deadlock,\n  title={Deadlock-free, safe, and decentralized multi-robot navigation in social mini-games via discrete-time control barrier functions},\n  author={Chandra, Rohan and Zinage, Vrushabh and Bakolas, Efstathios and Stone, Peter and Biswas, Joydeep},\n  journal={Autonomous Robots},\n  volume={49},\n  number={2},\n  pages={12},\n  year={2025},\n  publisher={Springer}\n}",
+    "chen2018verifiable": "@inproceedings{chen2018verifiable,\n  title={Verifiable control of robotic swarm from high-level specifications},\n  author={Chen, Ji and Moarref, Salar and Kress-Gazit, Hadas},\n  booktitle={Proceedings of the 17th international conference on autonomous agents and multiagent systems},\n  pages={568--576},\n  year={2018}\n}",
+    "chen2023multi": "@article{chen2023multi,\n  title={Multi-robot trajectory planning with feasibility guarantee and deadlock resolution: An obstacle-dense environment},\n  author={Chen, Yuda and Wang, Chenghan and Guo, Meng and Li, Zhongkui},\n  journal={IEEE Robotics and Automation Letters},\n  volume={8},\n  number={4},\n  pages={2197--2204},\n  year={2023},\n  publisher={IEEE}\n}",
+    "chen2024deadlock": "@article{chen2024deadlock,\n  title={Deadlock resolution and recursive feasibility in mpc-based multi-robot trajectory generation},\n  author={Chen, Yuda and Guo, Meng and Li, Zhongkui},\n  journal={IEEE Transactions on Automatic Control},\n  year={2024},\n  publisher={IEEE}\n}",
+    "chung2024deadlock": "@article{chung2024deadlock,\n  title={Deadlock prevention and multi agent path finding algorithm considering physical constraint for a massive fleet AGV system},\n  author={Chung, Chang Hyun and Jang, Young Jae},\n  journal={Applied Soft Computing},\n  volume={161},\n  pages={111725},\n  year={2024},\n  publisher={Elsevier}\n}",
+    "cirillo2014lattice": "@inproceedings{cirillo2014lattice,\n  title={A lattice-based approach to multi-robot motion planning for non-holonomic vehicles},\n  author={Cirillo, Marcello and Uras, Tansel and Koenig, Sven},\n  booktitle={2014 IEEE/RSJ International Conference on Intelligent Robots and Systems},\n  pages={232--239},\n  year={2014},\n  organization={IEEE}\n}",
+    "coskun2021deadlock": "@inproceedings{coskun2021deadlock,\n  title={Deadlock-free online plan repair in multi-robot coordination with disturbances},\n  author={Coskun, Adem and O'Kane, Jason and Valtorta, Marco},\n  booktitle={The International FLAIRS Conference Proceedings},\n  volume={34},\n  year={2021}\n}",
+    "csenbacslar2021rlss": "@article{csenbacslar2021rlss,\n  title={RLSS: Real-time multi-robot trajectory replanning using linear spatial separations},\n  author={Senbaslar, Baskin and Honig, Wolfgang and Ayanian, Nora},\n  journal={arXiv preprint arXiv:2103.07588},\n  year={2021}\n}",
+    "csenbacslar2023mrnav": "@article{csenbacslar2023mrnav,\n  title={Mrnav: Multi-robot aware planning and control stack for collision and deadlock-free navigation in cluttered environments},\n  author={Senbaslar, Baskin and Luiz, Pilar and Honig, Wolfgang and Sukhatme, Gaurav S},\n  journal={arXiv preprint arXiv:2308.13499},\n  year={2023}\n}",
+    "csenbacslar2024dream": "@article{csenbacslar2024dream,\n  title={Dream: Decentralized real-time asynchronous probabilistic trajectory planning for collision-free multi-robot navigation in cluttered environments},\n  author={Senbaslar, Baskin and Sukhatme, Gaurav S},\n  journal={IEEE Transactions on Robotics},\n  year={2024},\n  publisher={IEEE}\n}",
+    "das2019sparcas": "@article{das2019sparcas,\n  title={SPARCAS: A Decentralized, Truthful Multi-Agent Collision-free Path Finding Mechanism},\n  author={Das, Sankar and Nath, Swaprava and Saha, Indranil},\n  journal={arXiv preprint arXiv:1909.08290},\n  year={2019}\n}",
+    "das2019tarmac": "@inproceedings{das2019tarmac,\n  title={Tarmac: Targeted multi-agent communication},\n  author={Das, Abhishek and Gervet, Thibaut and Romoff, Joshua and Batra, Dhruv and Parikh, Devi and Rabbat, Michael and Pineau, Joelle},\n  booktitle={International Conference on Machine Learning (ICML)},\n  pages={1538--1546},\n  year={2019}\n}",
+    "das2023autonomous": "@article{das2023autonomous,\n  title={Autonomous Topological Optimisation for Multi-robot Systems in Logistics},\n  author={Das, Gautham and Hanheide, Marc and Zhu, Zuyuan},\n  year={2023},\n  publisher={University of Lincoln}\n}",
+    "decastro2018collision": "@article{decastro2018collision,\n  title={Collision-free reactive mission and motion planning for multi-robot systems},\n  author={DeCastro, Jonathan A and Alonso-Mora, Javier and Raman, Vasumathi and Rus, Daniela and Kress-Gazit, Hadas},\n  journal={Robotics Research: Volume 1},\n  pages={459--476},\n  year={2018},\n  publisher={Springer}\n}",
+    "dergachev2021distributed": "@inproceedings{dergachev2021distributed,\n  title={Distributed multi-agent navigation based on reciprocal collision avoidance and locally confined multi-agent path finding},\n  author={Dergachev, Stepan and Yakovlev, Konstantin},\n  booktitle={2021 IEEE 17th International Conference on Automation Science and Engineering (CASE)},\n  pages={1489--1494},\n  year={2021},\n  organization={IEEE}\n}",
+    "desaraju2012decentralized": "@article{desaraju2012decentralized,\n  title={Decentralized path planning for multi-agent teams with complex constraints},\n  author={Desaraju, Vishnu R and How, Jonathan P},\n  journal={Autonomous Robots},\n  volume={32},\n  pages={385--403},\n  year={2012},\n  publisher={Springer}\n}",
+    "draganjac2016decentralized": "@article{draganjac2016decentralized,\n  title={Decentralized control of multi-AGV systems in autonomous warehousing applications},\n  author={Draganjac, Ivica and Miklic, Damjan and Kovacic, Zdenko and Vasiljevic, Goran and Bogdan, Stjepan},\n  journal={IEEE Transactions on Automation Science and Engineering},\n  volume={13},\n  number={4},\n  pages={1433--1447},\n  year={2016},\n  publisher={IEEE}\n}",
+    "everett2019primal": "@inproceedings{everett2019primal,\n  title={PRIMAL: Pathfinding via Reinforcement and Imitation Multi-Agent Learning},\n  author={Everett, Michael and Chen, Yu Fan and How, Jonathan P},\n  booktitle={2019 International Conference on Intelligent Robots and Systems (IROS)},\n  pages={3656--3663},\n  year={2019},\n  organization={IEEE}\n}",
+    "everett2021collision": "@article{everett2021collision,\n  title={Collision avoidance in pedestrian-rich environments with deep reinforcement learning},\n  author={Everett, Michael and Chen, Yu Fan and How, Jonathan P},\n  journal={IEEE Access},\n  volume={9},\n  pages={10357--10377},\n  year={2021},\n  publisher={IEEE}\n}",
+    "freda20193d": "@article{freda20193d,\n  title={3D multi-robot patrolling with a two-level coordination strategy},\n  author={Freda, Luigi and Gianni, Mario and Pirri, Fiora and Gawel, Abel and Dube, Renaud and Siegwart, Roland and Cadena, Cesar},\n  journal={Autonomous Robots},\n  volume={43},\n  pages={1747--1779},\n  year={2019},\n  publisher={Springer}\n}",
+    "fujitani2022deadlock": "@article{fujitani2022deadlock,\n  title={Deadlock-Free Method for Multi-Agent Pickup and Delivery Problem Using Priority Inheritance with Temporary Priority},\n  author={Fujitani, Yukita and Yamauchi, Tomoki and Miyashita, Yuki and Sugawara, Toshiharu},\n  journal={Procedia Computer Science},\n  volume={207},\n  pages={1552--1561},\n  year={2022},\n  publisher={Elsevier}\n}",
+    "gao2024pce": "@article{gao2024pce,\n  title={PCE: Multi-Agent Path Finding via Priority-Aware Communication and Experience Learning},\n  author={Gao, Jianqi and Li, Yanjie and Ye, Zhaohui and Wu, Xinyu},\n  journal={IEEE Transactions on Intelligent Vehicles},\n  year={2024},\n  publisher={IEEE}\n}",
+    "garg2024deadlock": "@inproceedings{garg2024deadlock,\n  title={Deadlock Resolution of Connected Multi-Agent Systems using Hierarchical Control},\n  author={Garg, Kunal and Hamilton, Sera and Fan, Chuchu},\n  booktitle={2024 IEEE 63rd Conference on Decision and Control (CDC)},\n  pages={1275--1282},\n  year={2024},\n  organization={IEEE}\n}",
+    "garg2024large": "@article{garg2024large,\n  title={Large Language Models to the Rescue: Deadlock Resolution in Multi-Robot Systems},\n  author={Garg, Kunal and Arkin, Jacob and Zhang, Songyuan and Roy, Nicholas and Fan, Chuchu},\n  journal={arXiv e-prints},\n  pages={arXiv--2404},\n  year={2024}\n}",
+    "goto2022solving": "@inproceedings{goto2022solving,\n  title={Solving the deadlock problem with deep reinforcement learning using information from multiple vehicles},\n  author={Goto, Tsuyoshi and Itaya, Hidenori and Hirakawa, Tsubasa and Yamashita, Takayoshi and Fujiyoshi, Hironobu},\n  booktitle={2022 IEEE Intelligent Vehicles Symposium (IV)},\n  pages={1026--1032},\n  year={2022},\n  organization={IEEE}\n}",
+    "gregoire2018locally": "@article{gregoire2018locally,\n  title={Locally-optimal multi-robot navigation under delaying disturbances using homotopy constraints},\n  author={Gregoire, Jean and Cap, Michal and Frazzoli, Emilio},\n  journal={Autonomous Robots},\n  volume={42},\n  pages={895--907},\n  year={2018},\n  publisher={Springer}\n}",
+    "grover2022semantically": "@article{grover2022semantically,\n  title={Semantically-aware pedestrian intent prediction with barrier functions and mixed-integer quadratic programming},\n  author={Grover, Jaskaran and Lyu, Yiwei and Luo, Wenhao and Liu, Changliu and Dolan, John and Sycara, Katia},\n  journal={IFAC-PapersOnLine},\n  volume={55},\n  number={41},\n  pages={167--174},\n  year={2022},\n  publisher={Elsevier}\n}",
+    "grover2023before": "@article{grover2023before,\n  title={The before, during, and after of multi-robot deadlock},\n  author={Grover, Jaskaran and Liu, Changliu and Sycara, Katia},\n  journal={The International Journal of Robotics Research},\n  volume={42},\n  number={6},\n  pages={317--336},\n  year={2023},\n  publisher={SAGE Publications}\n}",
+    "he2022deadlock": "@article{he2022deadlock,\n  title={Deadlock Avoidance in Closed Guide-Path Based MultiAGV Systems},\n  author={He, Daiyu and Ouyang, Bo and Fan, Hongkai and Hu, Chenjia and Zhang, Kailai and Yan, Zhi},\n  journal={IEEE Transactions on Automation Science and Engineering},\n  volume={20},\n  number={3},\n  pages={2088--2098},\n  year={2022},\n  publisher={IEEE}\n}",
+    "heselden2021crh": "@inproceedings{heselden2021crh,\n  title={CRH*: A Deadlock Free Framework for Scalable Prioritised Path Planning in Multi-robot Systems},\n  author={Heselden, James R and Das, Gautham P},\n  booktitle={Towards Autonomous Robotic Systems (TAROS 2021)},\n  pages={66--75},\n  year={2021},\n  organization={Springer}\n}",
+    "iftikhar2016resource": "@inproceedings{iftikhar2016resource,\n  title={Resource sharing and deadlock avoidance in multi robot systems using market based approach},\n  author={Iftikhar, Kulsoom and Khan, Muhammad Tahir},\n  booktitle={2016 IEEE 7th Annual IEMCON},\n  pages={1--7},\n  year={2016},\n  organization={IEEE}\n}",
+    "kim2021multi": "@inproceedings{kim2021multi,\n  title={Multi-robot traffic management using MIP path negotiation scheduler},\n  author={Kim, JY and Cho, JW and Kwon, JH},\n  booktitle={2021 21st ICCAS},\n  pages={2196--2199},\n  year={2021},\n  organization={IEEE}\n}",
+    "kimmel2016decentralized": "@inproceedings{kimmel2016decentralized,\n  title={Decentralized multi-agent path selection using minimal information},\n  author={Kimmel, Andrew and Bekris, Kostas},\n  booktitle={Distributed Autonomous Robotic Systems (DARS)},\n  pages={341--356},\n  year={2016},\n  organization={Springer}\n}",
+    "lee2025merry": "@article{lee2025merry,\n  title={Merry-Go-Round: Safe Control of Decentralized Multi-Robot Systems with Deadlock Prevention},\n  author={Lee, Wonjong and Sim, Joonyeol and Kim, Joonkyung and Jo, Siwon and Luo, Wenhao and Nam, Changjoo},\n  journal={arXiv preprint arXiv:2503.05848},\n  year={2025}\n}",
+    "ma2016optimal": "@inproceedings{ma2016optimal,\n  title={Optimal Target Assignment and Path Finding for Teams of Agents},\n  author={Ma, Hang and Koenig, Sven},\n  booktitle={Proceedings of AAMAS},\n  pages={1144--1152},\n  year={2016}\n}",
+    "ma2017multi": "@inproceedings{ma2017multi,\n  title={Multi-agent path finding with delay probabilities},\n  author={Ma, Hang and Kumar, TK Satish and Koenig, Sven},\n  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},\n  volume={31},\n  number={1},\n  year={2017}\n}",
+    "ma2021distributed": "@inproceedings{ma2021distributed,\n  title={Distributed heuristic multi-agent path finding with communication},\n  author={Ma, Ziyuan and Luo, Yudong and Ma, Hang},\n  booktitle={2021 IEEE International Conference on Robotics and Automation (ICRA)},\n  pages={8699--8705},\n  year={2021},\n  organization={IEEE}\n}",
+    "mannucci2021provably": "@article{mannucci2021provably,\n  title={On provably safe and live multirobot coordination with online goal posting},\n  author={Mannucci, Anna and Pallottino, Lucia and Pecora, Federico},\n  journal={IEEE Transactions on Robotics},\n  volume={37},\n  number={6},\n  pages={1973--1991},\n  year={2021},\n  publisher={IEEE}\n}",
+    "maoudj2023improved": "@article{maoudj2023improved,\n  title={Improved decentralized cooperative multi-agent path finding for robots with limited communication},\n  author={Maoudj, Abderraouf and Christensen, Anders Lyhne},\n  journal={Swarm Intelligence},\n  pages={1--19},\n  year={2023},\n  publisher={Springer}\n}",
+    "matsuura1998deadlock": "@article{matsuura1998deadlock,\n  title={Deadlock avoidance of a multi-agent robot based on a network of chaotic elements},\n  author={Matsuura, Takayasu and Maeda, Yoichiro},\n  journal={Advanced Robotics},\n  volume={13},\n  number={3},\n  pages={249--251},\n  year={1998},\n  publisher={Taylor and Francis}\n}",
+    "mavrogiannis2020decentralized": "@inproceedings{mavrogiannis2020decentralized,\n  title={Decentralized multi-agent navigation planning with braids},\n  author={Mavrogiannis, Christoforos I and Knepper, Ross A},\n  booktitle={Algorithmic Foundations of Robotics XII},\n  pages={880--895},\n  year={2020},\n  organization={Springer}\n}",
+    "muller2023multi": "@inproceedings{muller2023multi,\n  title={Multi-Agent Proximal Policy Optimization for a Deadlock Capable Transport System},\n  author={Muller, Marcel and Reggelin, Tobias and Zadek, Hartmut and Reyes-Rubiano, Lorena S},\n  booktitle={2023 Winter Simulation Conference (WSC)},\n  pages={1818--1829},\n  year={2023},\n  organization={IEEE}\n}",
+    "park2022decentralized": "@article{park2022decentralized,\n  title={Decentralized Deadlock-free Trajectory Planning for Quadrotor Swarm in Obstacle-rich Environments -- Extended version},\n  author={Park, Jungwon and Jang, Inkyu and Kim, H Jin},\n  journal={arXiv preprint arXiv:2209.09447},\n  year={2022}\n}",
+    "park2023decentralized": "@inproceedings{park2023decentralized,\n  title={Decentralized Deadlock-free Trajectory Planning for Quadrotor Swarm in Obstacle-rich Environments},\n  author={Park, Jungwon and Jang, Inkyu and Kim, H Jin},\n  booktitle={2023 IEEE International Conference on Robotics and Automation (ICRA)},\n  pages={1428--1434},\n  year={2023},\n  organization={IEEE}\n}",
+    "park2023dlsc": "@article{park2023dlsc,\n  title={Dlsc: Distributed multi-agent trajectory planning in maze-like dynamic environments using linear safe corridor},\n  author={Park, Jungwon and Lee, Yunwoo and Jang, Inkyu and Kim, H Jin},\n  journal={IEEE Transactions on Robotics},\n  volume={39},\n  number={5},\n  pages={3739--3758},\n  year={2023},\n  publisher={IEEE}\n}",
+    "patwardhan2022distributing": "@article{patwardhan2022distributing,\n  title={Distributing collaborative multi-robot planning with Gaussian belief propagation},\n  author={Patwardhan, Aalok and Murai, Riku and Davison, Andrew J},\n  journal={IEEE Robotics and Automation Letters},\n  volume={8},\n  number={2},\n  pages={552--559},\n  year={2022},\n  publisher={IEEE}\n}",
+    "pianpak2019distributed": "@inproceedings{pianpak2019distributed,\n  title={A distributed solver for multi-agent path finding problems},\n  author={Pianpak, Poom and Son, Tran Cao and Toups Dugas, Phoebe O and Yeoh, William},\n  booktitle={Proceedings of the First International Conference on Distributed Artificial Intelligence},\n  pages={1--7},\n  year={2019}\n}",
+    "pratissoli2023hierarchical": "@article{pratissoli2023hierarchical,\n  title={Hierarchical traffic management of multi-AGV systems with deadlock prevention applied to industrial environments},\n  author={Pratissoli, Federico and Brugioni, Riccardo and Battilani, Nicola and Sabattini, Lorenzo},\n  journal={IEEE Transactions on Automation Science and Engineering},\n  year={2023},\n  publisher={IEEE}\n}",
+    "rao2018trust": "@inproceedings{rao2018trust,\n  title={A trust based navigation control for multi-robot to avoid deadlock in a static environment using improved Krill Herd},\n  author={Rao, D Chandrasekhar and Kabat, Manas Ranjan},\n  booktitle={2018 ICIRCA},\n  pages={810--817},\n  year={2018},\n  organization={IEEE}\n}",
+    "sadhu2017improving": "@article{sadhu2017improving,\n  title={Improving the speed of convergence of multi-agent Q-learning for cooperative task-planning by a robot-team},\n  author={Sadhu, Arup Kumar and Konar, Amit},\n  journal={Robotics and Autonomous Systems},\n  volume={92},\n  pages={66--80},\n  year={2017},\n  publisher={Elsevier}\n}",
+    "sauer2022decentralized": "@inproceedings{sauer2022decentralized,\n  title={Decentralized deadlock prevention for self-organizing industrial mobile robot fleets},\n  author={Sauer, Markus and Dachsberger, Andreas and Giglhuber, Leonard and Zalewski, Lukasz},\n  booktitle={2022 IEEE International Conference on Omni-layer Intelligent Systems (COINS)},\n  pages={1--6},\n  year={2022},\n  organization={IEEE}\n}",
+    "schafer2023rmtruck": "@inproceedings{schafer2023rmtruck,\n  title={RMTRUCK: Deadlock-Free Execution of Multi-Robot Plans Under Delaying Disturbances},\n  author={Schafer, Johannes and Keppler, Felix and Wagner, Sebastian and Janschek, Klaus},\n  booktitle={2023 IEEE 26th ITSC},\n  pages={1122--1127},\n  year={2023},\n  organization={IEEE}\n}",
+    "sukhbaatar2016commnet": "@inproceedings{sukhbaatar2016commnet,\n  title={Learning multiagent communication with backpropagation},\n  author={Sukhbaatar, Sainbayar and Szlam, Arthur and Fergus, Rob},\n  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},\n  pages={2244--2252},\n  year={2016}\n}",
+    "sun2014behavior": "@inproceedings{sun2014behavior,\n  title={Behavior-based multi-robot collision avoidance},\n  author={Sun, Dali and Kleiner, Alexander and Nebel, Bernhard},\n  booktitle={2014 IEEE ICRA},\n  pages={1668--1673},\n  year={2014},\n  organization={IEEE}\n}",
+    "toumieh2022decentralized": "@article{toumieh2022decentralized,\n  title={Decentralized multi-agent planning using model predictive control and time-aware safe corridors},\n  author={Toumieh, Charbel and Lambert, Alain},\n  journal={IEEE Robotics and Automation Letters},\n  volume={7},\n  number={4},\n  pages={11110--11117},\n  year={2022},\n  publisher={IEEE}\n}",
+    "turhanlar2021deadlock": "@mastersthesis{turhanlar2021deadlock,\n  title={Deadlock and collision prevention algorithms for mobile robots in automated warehouses},\n  author={Turhanlar, Ecem Eroglu and Ekren, Banu Yetkin},\n  year={2021}\n}",
+    "turhanlar2024autonomous": "@article{turhanlar2024autonomous,\n  title={Autonomous mobile robot travel under deadlock and collision prevention algorithms by agent-based modelling in warehouses},\n  author={Turhanlar, Ecem Eroglu and Ekren, Banu Y and Lerher, Tone},\n  journal={International Journal of Logistics Research and Applications},\n  volume={27},\n  number={8},\n  pages={1322--1341},\n  year={2024},\n  publisher={Taylor and Francis}\n}",
+    "vcap2016provably": "@inproceedings{vcap2016provably,\n  title={Provably safe and deadlock-free execution of multi-robot plans under delaying disturbances},\n  author={Cap, Michal and Gregoire, Jean and Frazzoli, Emilio},\n  booktitle={2016 IEEE/RSJ IROS},\n  pages={5113--5118},\n  year={2016},\n  organization={IEEE}\n}",
+    "wagner2022minimizing": "@inproceedings{wagner2022minimizing,\n  title={Minimizing coordination in multi-agent path finding with dynamic execution},\n  author={Wagner, Aidan and Veerapaneni, Rishi and Likhachev, Maxim},\n  booktitle={Proceedings of the AAAI Conference on AI and Interactive Digital Entertainment},\n  volume={18},\n  number={1},\n  pages={61--69},\n  year={2022}\n}",
+    "wang2016safety": "@inproceedings{wang2016safety,\n  title={Safety barrier certificates for heterogeneous multi-robot systems},\n  author={Wang, Li and Ames, Aaron and Egerstedt, Magnus},\n  booktitle={2016 American Control Conference (ACC)},\n  pages={5213--5218},\n  year={2016},\n  organization={IEEE}\n}",
+    "wang2017safety": "@article{wang2017safety,\n  title={Safety barrier certificates for collisions-free multirobot systems},\n  author={Wang, Li and Ames, Aaron D and Egerstedt, Magnus},\n  journal={IEEE Transactions on Robotics},\n  volume={33},\n  number={3},\n  pages={661--674},\n  year={2017},\n  publisher={IEEE}\n}",
+    "wang2018trust": "@article{wang2018trust,\n  title={Trust-based multi-robot symbolic motion planning with a human-in-the-loop},\n  author={Wang, Yue and Humphrey, Laura R and Liao, Zhanrui and Zheng, Huanfei},\n  journal={ACM Transactions on Interactive Intelligent Systems},\n  volume={8},\n  number={4},\n  pages={1--33},\n  year={2018},\n  publisher={ACM}\n}",
+    "wang2020multi": "@inproceedings{wang2020multi,\n  title={Multi-Agent Policy Gradient with Scheduled Communication},\n  author={Wang, Tianmin and Liu, Yi and Zhang, Xiaojian and Xu, Hang and Qi, Guodong and Prorok, Amanda},\n  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},\n  volume={34},\n  number={05},\n  pages={7265--7272},\n  year={2020}\n}",
+    "wang2023polynomial": "@article{wang2023polynomial,\n  title={A polynomial-time hybrid solver for multi-agent motion navigation against deadlocks},\n  author={Wang, W-C and Yeh, Y-W and Chen, R},\n  journal={Journal of Intelligent and Fuzzy Systems},\n  volume={44},\n  number={6},\n  pages={8925--8941},\n  year={2023},\n  publisher={IOS Press}\n}",
+    "wei2014multi": "@inproceedings{wei2014multi,\n  title={Multi-robot cooperative pathfinding: A decentralized approach},\n  author={Wei, Changyun and Hindriks, Koen V and Jonker, Catholijn M},\n  booktitle={IEA/AIE 2014},\n  pages={21--31},\n  year={2014},\n  organization={Springer}\n}",
+    "wu2019collision": "@inproceedings{wu2019collision,\n  title={Collision-aware task assignment for multi-robot systems},\n  author={Wu, Fang and Varadharajan, Vivek Shankar and Beltrame, Giovanni},\n  booktitle={2019 International Symposium on Multi-Robot and Multi-Agent Systems (MRS)},\n  pages={30--36},\n  year={2019},\n  organization={IEEE}\n}",
+    "xie2023drl": "@article{xie2023drl,\n  title={Drl-vo: Learning to navigate through crowded dynamic scenes using velocity obstacles},\n  author={Xie, Zhanteng and Dames, Philip},\n  journal={IEEE Transactions on Robotics},\n  volume={39},\n  number={4},\n  pages={2700--2719},\n  year={2023},\n  publisher={IEEE}\n}",
+    "yamauchi2022standby": "@article{yamauchi2022standby,\n  title={Standby-based deadlock avoidance method for multi-agent pickup and delivery tasks},\n  author={Yamauchi, Tomoki and Miyashita, Yuki and Sugawara, Toshiharu},\n  journal={arXiv preprint arXiv:2201.06014},\n  year={2022}\n}",
+    "ye2022multi": "@inproceedings{ye2022multi,\n  title={Multi-agent pathfinding with communication reinforcement learning and deadlock detection},\n  author={Ye, Zhaohui and Li, Yanjie and Guo, Ronghao and Gao, Jianqi and Fu, Wen},\n  booktitle={International Conference on Intelligent Robotics and Applications},\n  pages={493--504},\n  year={2022},\n  organization={Springer}\n}",
+    "yong2017cooperative": "@inproceedings{yong2017cooperative,\n  title={Cooperative path planning of robot swarm based on ACO},\n  author={Yong, Li and Yu, Li and Yipei, Guo and Kejie, Cai},\n  booktitle={2017 IEEE ITNEC},\n  pages={1428--1432},\n  year={2017},\n  organization={IEEE}\n}",
+    "zakir2022robot": "@inproceedings{zakir2022robot,\n  title={Robot swarms break decision deadlocks in collective perception through cross-inhibition},\n  author={Zakir, Raina and Dorigo, Marco and Reina, Andreagiovanni},\n  booktitle={International Conference on Swarm Intelligence},\n  pages={209--221},\n  year={2022},\n  organization={Springer}\n}",
+    "zhang2021natural": "@inproceedings{zhang2021natural,\n  title={Natural deadlock resolution for multi-agent multi-swarm navigation},\n  author={Zhang, Boyang and Gavin, Henri P},\n  booktitle={2021 60th IEEE CDC},\n  pages={5958--5963},\n  year={2021},\n  organization={IEEE}\n}",
+    "zhang2025adaptive": "@article{zhang2025adaptive,\n  title={Adaptive deadlock avoidance for decentralized multi-agent systems via cbf-inspired risk measurement},\n  author={Zhang, Yanze and Lyu, Yiwei and Jo, Siwon and Yang, Yupeng and Luo, Wenhao},\n  journal={arXiv preprint arXiv:2503.09621},\n  year={2025}\n}",
+    "zhang2025deadlock": "@article{zhang2025deadlock,\n  title={Deadlock-Aware Control for Multi-Robot Coordination with Multiple Safety Constraints},\n  author={Zhang, Zhenwei and Zhang, Yuhao and Zhao, Xingwei and Tao, Bo and Ding, Han},\n  journal={IEEE Transactions on Robotics},\n  year={2025},\n  publisher={IEEE}\n}",
+    "zheng2024mcca": "@article{zheng2024mcca,\n  title={MCCA: A Decentralized Method for Collision and Deadlock Avoidance With Nonholonomic Robots},\n  author={Zheng, Ruochen and Li, Siyu},\n  journal={IEEE Robotics and Automation Letters},\n  year={2024},\n  publisher={IEEE}\n}",
+    "zhou2017collision": "@article{zhou2017collision,\n  title={Collision and deadlock avoidance in multirobot systems: A distributed approach},\n  author={Zhou, Yuan and Hu, Hesuan and Liu, Yang and Ding, Zuohua},\n  journal={IEEE Transactions on Systems, Man, and Cybernetics: Systems},\n  volume={47},\n  number={7},\n  pages={1712--1726},\n  year={2017},\n  publisher={IEEE}\n}",
+    "zhou2018distributed": "@article{zhou2018distributed,\n  title={A distributed approach to robust control of multi-robot systems},\n  author={Zhou, Yuan and Hu, Hesuan and Liu, Yang and Lin, Shang-Wei and Ding, Zuohua},\n  journal={Automatica},\n  volume={98},\n  pages={1--13},\n  year={2018},\n  publisher={Elsevier}\n}",
+    "zhou2020distributed": "@article{zhou2020distributed,\n  title={A distributed method to avoid higher-order deadlocks in multi-robot systems},\n  author={Zhou, Yuan and Hu, Hesuan and Liu, Yang and Lin, Shang-Wei and Ding, Zuohua},\n  journal={Automatica},\n  volume={112},\n  pages={108706},\n  year={2020},\n  publisher={Elsevier}\n}"
+  };
+
   var PARADIGM_COLORS = {
     "MARL": "#209cee",
     "Optimization": "#667eea",
@@ -795,30 +887,25 @@
     ]
   };
 
-  /* Custom tooltip for reference chips */
-  var tooltipEl = null;
-  function showRefTooltip(e, r) {
-    hideRefTooltip();
-    tooltipEl = document.createElement('div');
-    tooltipEl.className = 'ref-tooltip';
+  /* Show detail card for a clicked reference */
+  function showRefDetail(r) {
+    var detail = document.getElementById('ref-detail');
     var t = titles[r.k] || r.k;
     var a = authors[r.k] || '';
-    tooltipEl.innerHTML =
-      '<strong style="font-size:0.85rem;display:block;margin-bottom:0.3rem;">' + t + '</strong>' +
-      (a ? '<span style="color:#ccc;font-size:0.78rem;">' + a + '</span><br>' : '') +
-      '<span class="ref-tooltip-badge" style="display:inline-block;margin-top:0.35rem;padding:0.15rem 0.5rem;border-radius:10px;font-size:0.72rem;font-weight:700;color:#fff;background:' + (PARADIGM_COLORS[r.p] || '#999') + ';">' + r.p + '</span>';
-    document.body.appendChild(tooltipEl);
-    // Position near the chip
-    var rect = e.target.getBoundingClientRect();
-    var tw = tooltipEl.offsetWidth;
-    var left = rect.left + rect.width / 2 - tw / 2;
-    if (left < 8) left = 8;
-    if (left + tw > window.innerWidth - 8) left = window.innerWidth - tw - 8;
-    tooltipEl.style.left = left + 'px';
-    tooltipEl.style.top = (rect.top - tooltipEl.offsetHeight - 8 + window.scrollY) + 'px';
-  }
-  function hideRefTooltip() {
-    if (tooltipEl) { tooltipEl.remove(); tooltipEl = null; }
+    var bib = bibtex[r.k] || '';
+    detail.innerHTML =
+      '<div class="ref-detail-header">' +
+        '<strong class="ref-detail-title">' + t + '</strong>' +
+        '<button class="ref-detail-close" onclick="document.getElementById(\'ref-detail\').style.display=\'none\'">&times;</button>' +
+      '</div>' +
+      (a ? '<div class="ref-detail-authors">' + a + '</div>' : '') +
+      '<span class="ref-detail-badge" style="background:' + (PARADIGM_COLORS[r.p] || '#999') + ';">' + r.p + '</span>' +
+      (bib ? '<div class="ref-detail-bib-wrap">' +
+        '<div class="ref-detail-bib-label">BibTeX <button class="ref-copy-btn" onclick="navigator.clipboard.writeText(this.parentElement.nextElementSibling.textContent).then(function(){var b=document.querySelector(\'.ref-copy-btn\');b.textContent=\'Copied!\';setTimeout(function(){b.textContent=\'Copy\'},1500)})">Copy</button></div>' +
+        '<pre class="ref-detail-bib">' + bib.replace(/\\n/g, '\n') + '</pre>' +
+      '</div>' : '');
+    detail.style.display = 'block';
+    detail.scrollIntoView({behavior: 'smooth', block: 'nearest'});
   }
 
   function showCategory(cat) {
@@ -838,17 +925,14 @@
 
     title.textContent = cat + ' (' + unique.length + ' papers)';
     list.innerHTML = '';
+    document.getElementById('ref-detail').style.display = 'none';
 
     unique.forEach(function(r) {
       var el = document.createElement('span');
       el.className = 'tax-ref-chip';
-      el.style.cssText = 'display:inline-block; padding:0.3rem 0.7rem; border-radius:8px; font-size:0.82rem; font-weight:600; color:#fff; background:' + (PARADIGM_COLORS[r.p] || '#999') + '; cursor:pointer; position:relative;';
+      el.style.cssText = 'display:inline-block; padding:0.3rem 0.7rem; border-radius:8px; font-size:0.82rem; font-weight:600; color:#fff; background:' + (PARADIGM_COLORS[r.p] || '#999') + '; cursor:pointer;';
       el.textContent = defined[r.k] || r.k;
-      // Custom tooltip on hover
-      el.addEventListener('mouseenter', function(e) {
-        showRefTooltip(e, r);
-      });
-      el.addEventListener('mouseleave', hideRefTooltip);
+      el.addEventListener('click', function() { showRefDetail(r); });
       list.appendChild(el);
     });
 
@@ -878,6 +962,7 @@
     });
     document.getElementById('tax-results-close').addEventListener('click', function() {
       document.getElementById('tax-results').style.display = 'none';
+      document.getElementById('ref-detail').style.display = 'none';
       document.querySelectorAll('.tax-btn').forEach(function(b) {
         b.classList.remove('tax-btn-active');
       });

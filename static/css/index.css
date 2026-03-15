@@ -360,33 +360,97 @@ body {
   color: #fff;
 }
 
-/* Custom tooltip for reference chips */
-.ref-tooltip {
-  position: absolute;
-  z-index: 9999;
+/* Reference detail card (click-to-expand) */
+#ref-detail {
+  margin-top: 1rem;
   background: #1a1a2e;
   color: #f0f0f0;
-  padding: 0.8rem 1rem;
-  border-radius: 10px;
-  max-width: 380px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-  pointer-events: none;
-  animation: tooltipFadeIn 0.15s ease;
-  line-height: 1.4;
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  animation: refDetailIn 0.2s ease;
+  line-height: 1.5;
 }
-.ref-tooltip::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 6px solid #1a1a2e;
-}
-@keyframes tooltipFadeIn {
-  from { opacity: 0; transform: translateY(4px); }
+@keyframes refDetailIn {
+  from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+.ref-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.ref-detail-title {
+  font-size: 0.95rem;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.ref-detail-close {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.ref-detail-close:hover { color: #fff; }
+.ref-detail-authors {
+  color: #aab;
+  font-size: 0.82rem;
+  margin-bottom: 0.5rem;
+}
+.ref-detail-badge {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.8rem;
+}
+.ref-detail-bib-wrap {
+  margin-top: 0.6rem;
+  border-top: 1px solid #333;
+  padding-top: 0.6rem;
+}
+.ref-detail-bib-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.ref-copy-btn {
+  background: #333;
+  color: #ccc;
+  border: 1px solid #555;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+.ref-copy-btn:hover { background: #444; color: #fff; }
+.ref-detail-bib {
+  background: #111;
+  color: #8be9fd;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+  max-height: 250px;
+  overflow-y: auto;
 }
 
 /* ═══════════════════════════════════════════════════════════════
