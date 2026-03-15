@@ -126,7 +126,7 @@
       <!-- Canvas -->
       <div class="sim-canvas-wrap">
         <canvas id="sim-canvas"></canvas>
-        <p class="sim-hint">Drag agents or goals to reposition them before running.</p>
+        <p class="sim-hint"><strong>Tip:</strong> Click on the canvas to place agents, then right-click to set goals. Drag agents or goals to reposition them.</p>
       </div>
 
       <!-- Controls -->
@@ -655,6 +655,97 @@
     "everett2021collision": "Collision avoidance in pedestrian-rich environments with deep reinforcement learning"
   };
 
+  /* Author lists for tooltips */
+  var authors = {
+    "chung2024deadlock": "Chung, C. H. and Jang, Y. J.",
+    "chandra2025deadlock": "Chandra, R., Zinage, V., Bakolas, E., Stone, P., Biswas, J.",
+    "gao2024pce": "Gao, J., Li, Y., Ye, Z., Wu, X.",
+    "ye2022multi": "Ye, Z., Li, Y., Guo, R., Gao, J., Fu, W.",
+    "arul2023ds": "Arul, S. H., Park, J. J., Manocha, D.",
+    "he2022deadlock": "He, D., Ouyang, B., Fan, H. et al.",
+    "fujitani2022deadlock": "Fujitani, Y., Yamauchi, T., Miyashita, Y., Sugawara, T.",
+    "sauer2022decentralized": "Sauer, M., Dachsberger, A., Giglhuber, L., Zalewski, L.",
+    "chandra2022gameplan": "Chandra, R. and Manocha, D.",
+    "wagner2022minimizing": "Wagner, A., Veerapaneni, R., Likhachev, M.",
+    "yamauchi2022standby": "Yamauchi, T., Miyashita, Y., Sugawara, T.",
+    "alonso2018reactive": "Alonso-Mora, J., DeCastro, J. A., Raman, V. et al.",
+    "decastro2018collision": "DeCastro, J. A., Alonso-Mora, J., Raman, V. et al.",
+    "yong2017cooperative": "Yong, L., Yu, L., Yipei, G., Kejie, C.",
+    "wang2017safety": "Wang, L., Ames, A. D., Egerstedt, M.",
+    "cirillo2014lattice": "Cirillo, M., Uras, T., Koenig, S.",
+    "csenbacslar2023mrnav": "Senbaslar, B., Luiz, P., Honig, W., Sukhatme, G. S.",
+    "garg2024deadlock": "Garg, K., Hamilton, S., Fan, C.",
+    "garg2024large": "Garg, K., Arkin, J., Zhang, S. et al.",
+    "ma2021distributed": "Ma, Z., Luo, Y., Ma, H.",
+    "wang2023polynomial": "Wang, W-C., Yeh, Y-W., Chen, R.",
+    "park2023decentralized": "Park, J., Jang, I., Kim, H. J.",
+    "park2023dlsc": "Park, J., Lee, Y., Jang, I., Kim, H. J.",
+    "muller2023multi": "Muller, M., Reggelin, T., Zadek, H., Reyes-Rubiano, L. S.",
+    "chen2023multi": "Chen, Y., Wang, C., Guo, M., Li, Z.",
+    "das2023autonomous": "Das, G., Hanheide, M., Zhu, Z.",
+    "toumieh2022decentralized": "Toumieh, C. and Lambert, A.",
+    "chan2022multi": "Chan, F. K. S., Law, Y. N., Lu, B. et al.",
+    "zakir2022robot": "Zakir, R., Dorigo, M., Reina, A.",
+    "goto2022solving": "Goto, T., Itaya, H., Hirakawa, T. et al.",
+    "grover2023before": "Grover, J., Liu, C., Sycara, K.",
+    "turhanlar2021deadlock": "Turhanlar, E. E. and Ekren, B. Y.",
+    "heselden2021crh": "Heselden, J. R. and Das, G. P.",
+    "abdullhak2021deadlock": "Abdullhak, M. and Vardy, A.",
+    "coskun2021deadlock": "Coskun, A., O'Kane, J., Valtorta, M.",
+    "dergachev2021distributed": "Dergachev, S. and Yakovlev, K.",
+    "kim2021multi": "Kim, J. Y., Cho, J. W., Kwon, J. H.",
+    "zhang2021natural": "Zhang, B. and Gavin, H. P.",
+    "mannucci2021provably": "Mannucci, A., Pallottino, L., Pecora, F.",
+    "pratissoli2023hierarchical": "Pratissoli, F., Brugioni, R., Battilani, N., Sabattini, L.",
+    "turhanlar2024autonomous": "Turhanlar, E. E., Ekren, B. Y., Lerher, T.",
+    "zhou2020distributed": "Zhou, Y., Hu, H., Liu, Y. et al.",
+    "wu2019collision": "Wu, F., Varadharajan, V. S., Beltrame, G.",
+    "das2019sparcas": "Das, S., Nath, S., Saha, I.",
+    "zhou2018distributed": "Zhou, Y., Hu, H., Liu, Y. et al.",
+    "rao2018trust": "Rao, D. C. and Kabat, M. R.",
+    "gregoire2018locally": "Gregoire, J., Cap, M., Frazzoli, E.",
+    "wang2018trust": "Wang, Y., Humphrey, L. R., Liao, Z., Zheng, H.",
+    "chen2018verifiable": "Chen, J., Moarref, S., Kress-Gazit, H.",
+    "zhou2017collision": "Zhou, Y., Hu, H., Liu, Y., Ding, Z.",
+    "draganjac2016decentralized": "Draganjac, I., Miklic, D., Kovacic, Z. et al.",
+    "kimmel2016decentralized": "Kimmel, A. and Bekris, K.",
+    "vcap2016provably": "Cap, M., Gregoire, J., Frazzoli, E.",
+    "iftikhar2016resource": "Iftikhar, K. and Khan, M. T.",
+    "sun2014behavior": "Sun, D., Kleiner, A., Nebel, B.",
+    "wei2014multi": "Wei, C., Hindriks, K. V., Jonker, C. M.",
+    "csenbacslar2021rlss": "Senbaslar, B., Honig, W., Ayanian, N.",
+    "csenbacslar2024dream": "Senbaslar, B. and Sukhatme, G. S.",
+    "das2019tarmac": "Das, A., Gervet, T., Romoff, J. et al.",
+    "sukhbaatar2016commnet": "Sukhbaatar, S., Szlam, A., Fergus, R.",
+    "wang2020multi": "Wang, T., Liu, Y., Zhang, X. et al.",
+    "cao2021multi": "Cao, Y., Hu, H., Prorok, A.",
+    "maoudj2023improved": "Maoudj, A. and Christensen, A. L.",
+    "arif2022robot": "Arif, M. U.",
+    "schafer2023rmtruck": "Schafer, J., Keppler, F., Wagner, S., Janschek, K.",
+    "zhang2025adaptive": "Zhang, Y., Lyu, Y., Jo, S. et al.",
+    "zhang2025deadlock": "Zhang, Z., Zhang, Y., Zhao, X. et al.",
+    "lee2025merry": "Lee, W., Sim, J., Kim, J. et al.",
+    "everett2019primal": "Everett, M., Chen, Y. F., How, J. P.",
+    "ma2016optimal": "Ma, H. and Koenig, S.",
+    "patwardhan2022distributing": "Patwardhan, A., Murai, R., Davison, A. J.",
+    "amador2014dynamic": "Amador, S., Okamoto, S., Zivan, R.",
+    "freda20193d": "Freda, L., Gianni, M., Pirri, F. et al.",
+    "sadhu2017improving": "Sadhu, A. K. and Konar, A.",
+    "ma2017multi": "Ma, H., Kumar, T. K. S., Koenig, S.",
+    "zheng2024mcca": "Zheng, R. and Li, S.",
+    "park2022decentralized": "Park, J., Jang, I., Kim, H. J.",
+    "chen2024deadlock": "Chen, Y., Guo, M., Li, Z.",
+    "xie2023drl": "Xie, Z. and Dames, P.",
+    "cappello2020hybrid": "Cappello, D., Garcin, S., Mao, Z. et al.",
+    "mavrogiannis2020decentralized": "Mavrogiannis, C. I. and Knepper, R. A.",
+    "pianpak2019distributed": "Pianpak, P., Son, T. C., Toups Dugas, P. O., Yeoh, W.",
+    "grover2022semantically": "Grover, J., Lyu, Y., Luo, W. et al.",
+    "wang2016safety": "Wang, L., Ames, A., Egerstedt, M.",
+    "desaraju2012decentralized": "Desaraju, V. R. and How, J. P.",
+    "matsuura1998deadlock": "Matsuura, T. and Maeda, Y.",
+    "everett2021collision": "Everett, M., Chen, Y. F., How, J. P."
+  };
+
   var PARADIGM_COLORS = {
     "MARL": "#209cee",
     "Optimization": "#667eea",
@@ -704,6 +795,32 @@
     ]
   };
 
+  /* Custom tooltip for reference chips */
+  var tooltipEl = null;
+  function showRefTooltip(e, r) {
+    hideRefTooltip();
+    tooltipEl = document.createElement('div');
+    tooltipEl.className = 'ref-tooltip';
+    var t = titles[r.k] || r.k;
+    var a = authors[r.k] || '';
+    tooltipEl.innerHTML =
+      '<strong style="font-size:0.85rem;display:block;margin-bottom:0.3rem;">' + t + '</strong>' +
+      (a ? '<span style="color:#ccc;font-size:0.78rem;">' + a + '</span><br>' : '') +
+      '<span class="ref-tooltip-badge" style="display:inline-block;margin-top:0.35rem;padding:0.15rem 0.5rem;border-radius:10px;font-size:0.72rem;font-weight:700;color:#fff;background:' + (PARADIGM_COLORS[r.p] || '#999') + ';">' + r.p + '</span>';
+    document.body.appendChild(tooltipEl);
+    // Position near the chip
+    var rect = e.target.getBoundingClientRect();
+    var tw = tooltipEl.offsetWidth;
+    var left = rect.left + rect.width / 2 - tw / 2;
+    if (left < 8) left = 8;
+    if (left + tw > window.innerWidth - 8) left = window.innerWidth - tw - 8;
+    tooltipEl.style.left = left + 'px';
+    tooltipEl.style.top = (rect.top - tooltipEl.offsetHeight - 8 + window.scrollY) + 'px';
+  }
+  function hideRefTooltip() {
+    if (tooltipEl) { tooltipEl.remove(); tooltipEl = null; }
+  }
+
   function showCategory(cat) {
     var refs = TAX_DATA[cat];
     if (!refs) return;
@@ -725,9 +842,13 @@
     unique.forEach(function(r) {
       var el = document.createElement('span');
       el.className = 'tax-ref-chip';
-      el.style.cssText = 'display:inline-block; padding:0.3rem 0.7rem; border-radius:8px; font-size:0.82rem; font-weight:600; color:#fff; background:' + (PARADIGM_COLORS[r.p] || '#999') + '; cursor:default;';
+      el.style.cssText = 'display:inline-block; padding:0.3rem 0.7rem; border-radius:8px; font-size:0.82rem; font-weight:600; color:#fff; background:' + (PARADIGM_COLORS[r.p] || '#999') + '; cursor:pointer; position:relative;';
       el.textContent = defined[r.k] || r.k;
-      el.title = (titles[r.k] || r.k) + '\n[' + r.p + ']';
+      // Custom tooltip on hover
+      el.addEventListener('mouseenter', function(e) {
+        showRefTooltip(e, r);
+      });
+      el.addEventListener('mouseleave', hideRefTooltip);
       list.appendChild(el);
     });
 
