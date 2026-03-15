@@ -590,11 +590,11 @@ function render() {
   var H = sim.canvas.height;
 
   // Background
-  ctx.fillStyle = '#1a1a2e';
+  ctx.fillStyle = '#ffffff';
   ctx.fillRect(0, 0, W, H);
 
   // Grid (subtle)
-  ctx.strokeStyle = 'rgba(255,255,255,0.04)';
+  ctx.strokeStyle = 'rgba(0,0,0,0.06)';
   ctx.lineWidth = 1;
   var view = sim.scenario.view;
   for (var gx = Math.ceil(view.xMin); gx <= view.xMax; gx += 2) {
@@ -609,8 +609,8 @@ function render() {
   }
 
   // Obstacles
-  ctx.fillStyle = '#3d3d5c';
-  ctx.strokeStyle = '#5a5a8a';
+  ctx.fillStyle = '#d0d0d8';
+  ctx.strokeStyle = '#b0b0b8';
   ctx.lineWidth = 1;
   var obstacles = sim.scenario.obstacles;
   for (var i = 0; i < obstacles.length; i++) {
@@ -684,7 +684,7 @@ function render() {
 
     // Glow
     ctx.shadowColor = a.color;
-    ctx.shadowBlur = a.reached ? 0 : 8;
+    ctx.shadowBlur = a.reached ? 0 : 6;
 
     // Body
     ctx.fillStyle = a.color;
@@ -696,7 +696,7 @@ function render() {
     ctx.shadowBlur = 0;
 
     // Border
-    ctx.strokeStyle = '#fff';
+    ctx.strokeStyle = '#363636';
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.arc(cp.x, cp.y, r, 0, Math.PI * 2);
@@ -704,7 +704,7 @@ function render() {
 
     // Label
     ctx.fillStyle = '#fff';
-    ctx.font = 'bold ' + Math.max(10, r * 0.9) + 'px sans-serif';
+    ctx.font = 'bold ' + Math.max(11, r * 0.9) + 'px sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText('' + (i + 1), cp.x, cp.y);
@@ -713,7 +713,7 @@ function render() {
     if (vLen(a.vel) > 0.1 && !a.reached) {
       var arrowEnd = vAdd(a.pos, vScale(vNorm(a.vel), a.radius * 2.5));
       var ae = worldToCanvas(arrowEnd.x, arrowEnd.y);
-      ctx.strokeStyle = '#fff';
+      ctx.strokeStyle = '#363636';
       ctx.lineWidth = 2;
       ctx.globalAlpha = 0.7;
       ctx.beginPath();
@@ -727,21 +727,21 @@ function render() {
       ctx.lineTo(ae.x - 6 * Math.cos(angle - 0.4), ae.y - 6 * Math.sin(angle - 0.4));
       ctx.lineTo(ae.x - 6 * Math.cos(angle + 0.4), ae.y - 6 * Math.sin(angle + 0.4));
       ctx.closePath();
-      ctx.fillStyle = '#fff';
+      ctx.fillStyle = '#363636';
       ctx.fill();
       ctx.globalAlpha = 1;
     }
   }
 
   // Status text
-  ctx.fillStyle = 'rgba(255,255,255,0.6)';
+  ctx.fillStyle = 'rgba(0,0,0,0.4)';
   ctx.font = '12px monospace';
   ctx.textAlign = 'left';
   ctx.textBaseline = 'top';
   ctx.fillText('t = ' + (sim.step * SIM.DT).toFixed(1) + 's  |  step ' + sim.step, 8, 8);
 
   if (sim.finished) {
-    ctx.fillStyle = 'rgba(72,199,116,0.85)';
+    ctx.fillStyle = 'rgba(72,199,116,0.9)';
     ctx.font = 'bold 16px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Simulation Complete', W / 2, H - 24);
